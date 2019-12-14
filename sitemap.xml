@@ -3,15 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://delley.github.io/post/docker-fedora-31/</loc>
+    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/post/</loc>
+    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/</loc>
+    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://delley.github.io/categories/</loc>
   </url>
   
   <url>
     <loc>https://delley.github.io/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/</loc>
   </url>
   
 </urlset>
