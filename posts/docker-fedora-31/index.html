@@ -133,29 +133,29 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
 <h2 id="cgroup-v2">cgroup v2</h2>
 <p>O Fedora 31 é a primeira grande distro que vem com o <code>cgroup v2</code> (também conhecido como hierarquia unificada) habilitada por padrão (mais informações <a href="https://www.redhat.com/sysadmin/fedora-31-control-group-v2">aqui</a>).</p>
 <p>Embora a adoção do <code>cgroup v2</code> seja um passo inevitável, a maioria das implementações de contêineres, incluindo <strong>Docker</strong>/<strong>Moby</strong> e <strong>Kubernetes</strong>, ainda não oferecem suporte e se você instalar e tentar executar o Docker, por exemplo, irá se deparar com o seguinte erro:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ docker run hello-world
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run hello-world
 ...
-docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused <span class="s2">&#34;process_linux.go:297: applying cgroup configuration for process caused \&#34;open /sys/fs/cgroup/docker/cpuset.cpus.effective: no such file or directory\&#34;&#34;</span>: unknown.
+docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused <span style="font-style:italic">&#34;process_linux.go:297: applying cgroup configuration for process caused \&#34;open /sys/fs/cgroup/docker/cpuset.cpus.effective: no such file or directory\&#34;&#34;</span>: unknown.
 </code></pre></div><h2 id="passos-para-a-instalao-e-configurao-do-docker-no-fedora-31">Passos para a instalação e configuração do Docker no Fedora 31</h2>
 <p>Para resolver o problema com o <code>cgroup v2</code>, é necessário adicionar alguns passos extras nas instruções fornecidas na documentação oficial.</p>
 <h3 id="1-alterne-para-cgroup-v1">1. Alterne para cgroup v1:</h3>
 <p>A primeira coisa a ser feita é alterar o cgroup para a v1.</p>
 <p>Isso pode ser feito por meio do utilitário <code>grubby</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo dnf install grubby
-$ sudo grubby --update-kernel<span class="o">=</span>ALL --args<span class="o">=</span><span class="s2">&#34;systemd.unified_cgroup_hierarchy=0&#34;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf install grubby
+$ sudo grubby --update-kernel=ALL --args=<span style="font-style:italic">&#34;systemd.unified_cgroup_hierarchy=0&#34;</span>
 </code></pre></div><p>Após isso, reinicie o sistema e siga com os passos seguintes para instalar o Docker CE (caso já o tenha instalado, não é necessário seguir os próximos passos)</p>
 <h3 id="2-adicione-o-repositrio-do-fedora-docker-ce">2. Adicione o repositório do Fedora Docker CE</h3>
 <p>Uma das formas mais simples de instalar o Docker CE é por meio do repositório do Fedora Docker CE. Para adicioná-lo a seu sistema, execute o seguinte comando:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 </code></pre></div><h3 id="3-instale-o-docker-ce">3. Instale o Docker CE</h3>
 <p>Após adicionar o repositório, siga com a instalação do Docker CE (isso também irá instalar o <code>docker-ce-cli</code> e o <code>containerd.io</code>). Para isso, execute o seguinte comando:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo dnf install docker-ce
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf install docker-ce
 </code></pre></div><h3 id="4-habilite-e-inicie-o-daemon-do-docker">4. Habilite e inicie o daemon do Docker:</h3>
 <p>Para habilitar o daemon e iniciá-lo durante a inicialização do sistema, execute o seguinte comando:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl <span class="nb">enable</span> --now docker
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl enable --now docker
 </code></pre></div><h3 id="5-opcional">5. Opcional</h3>
 <p>Você também pode adicionar seu usuário ao grupo <code>docker</code> para não precisar executá-lo com privilégios de superusuário:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo usermod -aG docker <span class="k">$(</span>whoami<span class="k">)</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo usermod -aG docker <span style="font-weight:bold">$(</span>whoami<span style="font-weight:bold">)</span>
 </code></pre></div><p>Após executar o comando, é necessário reiniciar o sistema.</p>
 <hr>
 <p>Bom&hellip; é isso!</p>
@@ -200,7 +200,23 @@ $ sudo grubby --update-kernel<span class="o">=</span>ALL --args<span class="o">=
       </footer>
     </article>
 
-    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
   </section>
 
       </div>
