@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programação on Textículos</title>
+    <link>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</link>
+    <description>Recent content in programação on Textículos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 -0300</lastBuildDate>
+    
+	<atom:link href="https://delley.github.io/categories/programa%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introdução ao Go</title>
+      <link>https://delley.github.io/posts/introducao-ao-go/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 -0300</pubDate>
+      
+      <guid>https://delley.github.io/posts/introducao-ao-go/</guid>
+      <description>O que é Go? Como o próprio site define:
+ Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.
+ golang.org  O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.
+Go tem uma certa semelhança com C, principalmente no que diz respeito a alcançar o máximo com o mínimo de recursos.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -14,47 +14,67 @@
   
   <url>
     <loc>https://delley.github.io/categories/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/tags/cgroup-v2/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/series/docker/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/tags/docker/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/categories/ferramentas/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/posts/docker-fedora-31/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/posts/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/series/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/tags/</loc>
-    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/tags/go/</loc>
+    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/series/go/</loc>
+    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/posts/introducao-ao-go/</loc>
+    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
+    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
   </url>
   
 </urlset>
