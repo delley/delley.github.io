@@ -9,7 +9,9 @@
     <meta name="description" content="Pequenos textos sobre coisas diversas, em especial tecnologia">
     <meta name="keywords" content="blog,developer,personal">
 
-    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://delley.github.io/images/docker-fedora-31.png"/>
+
 <meta name="twitter:title" content="Instalando e configurando o Docker CE no Fedora 31"/>
 <meta name="twitter:description" content="Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.
 No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.
@@ -21,6 +23,7 @@ No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei mui
 Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://delley.github.io/posts/docker-fedora-31/" />
+<meta property="og:image" content="https://delley.github.io/images/docker-fedora-31.png" />
 <meta property="article:published_time" content="2019-12-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-15T00:00:00+00:00" />
 
@@ -127,7 +130,12 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
       </header>
 
       <div>
-        <p>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.</p>
+        <figure class="centered">
+    <img src="https://delley.github.io/images/docker-fedora-31.png"
+         alt="Docker &#43; Fedora 31"/> 
+</figure>
+
+<p>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.</p>
 <p>No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.</p>
 <p>Um software que utilizo bastante é o <a href="https://www.docker.com/">Docker</a>, e é possível instalá-lo seguindo os passos fornecidos na <a href="https://docs.docker.com/install/linux/docker-ce/fedora/">documentação</a>. Porém, devido a alguns inconvenientes, os passos descritos aqui podem salvar o seu dia!!! 👊</p>
 <h2 id="cgroup-v2">cgroup v2</h2>
