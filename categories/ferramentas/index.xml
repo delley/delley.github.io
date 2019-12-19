@@ -13,10 +13,10 @@
     
     <item>
       <title>Instalando e configurando o Docker CE no Fedora 31</title>
-      <link>https://delley.github.io/posts/docker-fedora-31/</link>
+      <link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://delley.github.io/posts/docker-fedora-31/</guid>
+      <guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
       <description>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.
 No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.
 Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação.</description>
