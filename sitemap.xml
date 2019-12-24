@@ -3,18 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://delley.github.io/about/</loc>
-    <lastmod>2019-12-14T22:39:37-03:00</lastmod>
+    <loc>https://delley.github.io/categories/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/posts/retrospectiva-2019/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/posts/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/series/retrospectiva/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/categories/retrospectiva/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/tags/retrospectiva-comunidade/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/series/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/tags/</loc>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/</loc>
-    <lastmod>2019-12-14T22:39:37-03:00</lastmod>
+    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://delley.github.io/categories/</loc>
-    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
+    <loc>https://delley.github.io/about/</loc>
+    <lastmod>2019-12-14T22:39:37-03:00</lastmod>
   </url>
   
   <url>
@@ -43,27 +78,12 @@
   </url>
   
   <url>
-    <loc>https://delley.github.io/posts/</loc>
-    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/series/</loc>
-    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/tags/</loc>
-    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/tags/go/</loc>
+    <loc>https://delley.github.io/series/go/</loc>
     <lastmod>2019-12-14T00:00:00-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://delley.github.io/series/go/</loc>
+    <loc>https://delley.github.io/tags/go/</loc>
     <lastmod>2019-12-14T00:00:00-03:00</lastmod>
   </url>
   
