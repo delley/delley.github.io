@@ -6,10 +6,20 @@
     <description>Recent content in Go on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate>
     
 	<atom:link href="https://delley.github.io/series/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go Modules: Configuração e Ativição</title>
+      <link>https://delley.github.io/posts/go-modules/</link>
+      <pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
+      
+      <guid>https://delley.github.io/posts/go-modules/</guid>
+      <description>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como dep, godep, govendor e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.
+O que é o Go Modules? É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências, ou seja, Go Modules é a resposta oficial para lidarmos com dependências em Go.</description>
+    </item>
     
     <item>
       <title>Introdução ao Go</title>

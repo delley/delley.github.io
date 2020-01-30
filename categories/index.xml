@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate>
     
 	<atom:link href="https://delley.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>programação</title>
+      <link>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</link>
+      <pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
+      
+      <guid>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>retrospectiva</title>
@@ -26,15 +35,6 @@
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://delley.github.io/categories/ferramentas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programação</title>
-      <link>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 -0300</pubDate>
-      
-      <guid>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     

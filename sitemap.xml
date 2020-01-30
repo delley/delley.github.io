@@ -4,16 +4,56 @@
   
   <url>
     <loc>https://delley.github.io/categories/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://delley.github.io/posts/retrospectiva-2019/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
+    <loc>https://delley.github.io/tags/go/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/series/go/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/posts/go-modules/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/tags/modules/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://delley.github.io/posts/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/series/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/tags/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/</loc>
+    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://delley.github.io/posts/retrospectiva-2019/</loc>
     <lastmod>2019-12-22T00:00:00-03:00</lastmod>
   </url>
   
@@ -29,21 +69,6 @@
   
   <url>
     <loc>https://delley.github.io/tags/retrospectiva-comunidade/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/series/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/tags/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/</loc>
     <lastmod>2019-12-22T00:00:00-03:00</lastmod>
   </url>
   
@@ -78,22 +103,7 @@
   </url>
   
   <url>
-    <loc>https://delley.github.io/series/go/</loc>
-    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/tags/go/</loc>
-    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://delley.github.io/posts/introducao-ao-go/</loc>
-    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
     <lastmod>2019-12-14T00:00:00-03:00</lastmod>
   </url>
   
