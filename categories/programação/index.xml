@@ -19,7 +19,7 @@
       <guid>https://delley.github.io/posts/go-modules/</guid>
       <description>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como dep, godep, govendor e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.
 O que é o Go Modules?  É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências
- The Go Blog - Using Go Modules  Em poucas palavras, Go Modules é a resposta oficial para lidarmos com dependências em Go.</description>
+ The Go Blog - Using Go Modules  Em poucas palavras, Go Modules é a resposta oficial para lidarmos com o Gerenciamento de Dependências em Go.</description>
     </item>
     
     <item>
