@@ -163,7 +163,7 @@
 <li>Versão 1.13: O diretório do projeto pode ser criado em qualquer lugar no computador.</li>
 </ul>
 <h3 id="ativao-do-go-modules">Ativação do Go Modules</h3>
-<p>Para utilizar módulos no seu projeto, abra seu terminal e crie um novo diretório para o projeto chamado <code>go-modules</code> em qualquer lugar em seu computador0.</p>
+<p>Para utilizar módulos no seu projeto, abra seu terminal e crie um novo diretório para o projeto chamado <code>go-modules</code> em qualquer lugar em seu computador.</p>
 <blockquote>
 <p><strong>Dica</strong>: Crie o diretório do projeto em <code>$HOME/code</code>, mas você pode escolher um local diferente, se desejar.</p>
 </blockquote>
@@ -172,7 +172,7 @@
 <p>Para fazer isso, primeiro precisamos decidir qual deve ser o caminho do módulo para o nosso projeto.</p>
 <p>O importante aqui é a singularidade. Para evitar possíveis conflitos de importação com os pacotes de outras pessoas ou com a <em>Standard Library</em> (biblioteca padrão) no futuro, escolha um caminho de módulo que seja globalmente exclusivo e improvável de ser usado por qualquer outra coisa. Na comunidade Go, uma convenção comum é criar o caminho do módulo com base em uma URL que você possui.</p>
 <p>Supondo que nossa URL seja <code>delley.github.io</code>, vamos iniciar os módulos da seguinte forma:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd $HOME/code/workshop
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd $HOME/code/go-modules
 $ go mod init delley.github.io/go-modules
 go: creating new go.mod: module delley.github.io/go-modules
 </code></pre></div><p>Neste ponto, o diretório do projeto já deve possuir o aquivo <code>go.mod</code> criado.</p>
