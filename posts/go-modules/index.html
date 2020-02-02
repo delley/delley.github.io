@@ -141,7 +141,7 @@
 </blockquote>
 <p>Em poucas palavras, <em>Go Modules</em> é a resposta oficial para lidarmos com o <strong>Gerenciamento de Dependências em Go</strong>.</p>
 <h2 id="gopath-configurao-do-projeto-e-ativao-do-go-modules">GOPATH, Configuração do projeto e ativação do Go Modules</h2>
-<p>Embora seja possível criar o diretório do projeto em qualquer lugar no computador, se você planeja usar módulos para gerenciar dependências, é recomendado criar o diretório do projeto fora do diretório <code>GOPATH</code>.</p>
+<p>O lançamento da versão 1.13 possibilitou a criação do diretório do projeto em qualquer lugar no computador, inclusive no diretório <code>GOPATH</code>. Em versões pré-1.13 e pós-1.11, já era possível criar o diretório em qualquer lugar, porém o recomendado era criá-lo fora do diretório <code>GOPATH</code>.</p>
 <p>Esta é uma grande mudança em relação as versões anteriores do Go (pré-1.11), onde a prática recomendada era criar o diretório dos projetos dentro de uma pasta <code>src</code> sob o diretório <code>GOPATH</code>, conforme mostrado a seguir:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$GOPATH
 ├── bin
@@ -156,8 +156,14 @@
 <li><code>pkg</code>: Guardar nossas bibliotecas e bibliotecas de terceiros;</li>
 <li><code>src</code>: Guardar todo o código dos nossos projetos.</li>
 </ul>
+<p>De forma resumida:</p>
+<ul>
+<li>Versões pré-1.11: A recomendação é criar o diretório do projeto sob o diretório <code>GOPATH</code>;</li>
+<li>Versões pós-1.11 e pré-1.13: A recomendção é criar o diretório do projeto fora do <code>GOPATH</code>;</li>
+<li>Versão 1.13: O diretório do projeto pode ser criado em qualquer lugar no computador.</li>
+</ul>
 <h3 id="ativao-do-go-modules">Ativação do Go Modules</h3>
-<p>Para utilizar módulos no seu projeto, abra seu terminal e crie um novo diretório para o projeto chamado <code>go-modules</code> em qualquer lugar em seu computador, desde que não esteja sob o diretório <code>GOPATH</code>.</p>
+<p>Para utilizar módulos no seu projeto, abra seu terminal e crie um novo diretório para o projeto chamado <code>go-modules</code> em qualquer lugar em seu computador0.</p>
 <blockquote>
 <p><strong>Dica</strong>: Crie o diretório do projeto em <code>$HOME/code</code>, mas você pode escolher um local diferente, se desejar.</p>
 </blockquote>
