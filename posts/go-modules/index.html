@@ -59,7 +59,7 @@
     <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   
@@ -132,7 +132,7 @@
 </figure>
 
 <p>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como <a href="https://golang.github.io/dep/">dep</a>, <a href="https://github.com/tools/godep">godep</a>, <a href="https://github.com/kardianos/govendor">govendor</a> e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.</p>
-<h2 id="o-que--o-go-modules">O que é o Go Modules?</h2>
+<h2 id="o-que-é-o-go-modules">O que é o Go Modules?</h2>
 <blockquote>
 <p>É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências</p>
 <blockquote>
@@ -140,7 +140,7 @@
 </blockquote>
 </blockquote>
 <p>Em poucas palavras, <em>Go Modules</em> é a resposta oficial para lidarmos com o <strong>Gerenciamento de Dependências em Go</strong>.</p>
-<h2 id="gopath-configurao-do-projeto-e-ativao-do-go-modules">GOPATH, Configuração do projeto e ativação do Go Modules</h2>
+<h2 id="gopath-configuração-do-projeto-e-ativação-do-go-modules">GOPATH, Configuração do projeto e ativação do Go Modules</h2>
 <p>O lançamento da versão 1.13 possibilitou a criação do diretório do projeto em qualquer lugar no computador, inclusive no diretório <code>GOPATH</code>. Em versões pré-1.13 e pós-1.11, já era possível criar o diretório em qualquer lugar, porém o recomendado era criá-lo fora do diretório <code>GOPATH</code>.</p>
 <p>Esta é uma grande mudança em relação as versões anteriores do Go (pré-1.11), onde a prática recomendada era criar o diretório dos projetos dentro de uma pasta <code>src</code> sob o diretório <code>GOPATH</code>, conforme mostrado a seguir:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$GOPATH
@@ -162,7 +162,7 @@
 <li>Versões pós-1.11 e pré-1.13: A recomendção é criar o diretório do projeto fora do <code>GOPATH</code>;</li>
 <li>Versão 1.13: O diretório do projeto pode ser criado em qualquer lugar no computador.</li>
 </ul>
-<h3 id="ativao-do-go-modules">Ativação do Go Modules</h3>
+<h3 id="ativação-do-go-modules">Ativação do Go Modules</h3>
 <p>Para utilizar módulos no seu projeto, abra seu terminal e crie um novo diretório para o projeto chamado <code>go-modules</code> em qualquer lugar em seu computador.</p>
 <blockquote>
 <p><strong>Dica</strong>: Crie o diretório do projeto em <code>$HOME/code</code>, mas você pode escolher um local diferente, se desejar.</p>

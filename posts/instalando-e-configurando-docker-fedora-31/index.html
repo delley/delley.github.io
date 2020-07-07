@@ -63,7 +63,7 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
     <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   
@@ -144,7 +144,7 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run hello-world
 ...
 docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused <span style="font-style:italic">&#34;process_linux.go:297: applying cgroup configuration for process caused \&#34;open /sys/fs/cgroup/docker/cpuset.cpus.effective: no such file or directory\&#34;&#34;</span>: unknown.
-</code></pre></div><h2 id="passos-para-a-instalao-e-configurao-do-docker-no-fedora-31">Passos para a instalação e configuração do Docker no Fedora 31</h2>
+</code></pre></div><h2 id="passos-para-a-instalação-e-configuração-do-docker-no-fedora-31">Passos para a instalação e configuração do Docker no Fedora 31</h2>
 <p>Para resolver o problema com o <code>cgroup v2</code>, é necessário adicionar alguns passos extras nas instruções fornecidas na documentação oficial.</p>
 <h3 id="1-alterne-para-cgroup-v1">1. Alterne para cgroup v1:</h3>
 <p>A primeira coisa a ser feita é alterar o cgroup para a v1.</p>
@@ -152,7 +152,7 @@ docker: Error response from daemon: OCI runtime create failed: container_linux.g
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf install grubby
 $ sudo grubby --update-kernel=ALL --args=<span style="font-style:italic">&#34;systemd.unified_cgroup_hierarchy=0&#34;</span>
 </code></pre></div><p>Após isso, reinicie o sistema e siga com os passos seguintes para instalar o Docker CE (caso já o tenha instalado, não é necessário seguir os próximos passos)</p>
-<h3 id="2-adicione-o-repositrio-do-fedora-docker-ce">2. Adicione o repositório do Fedora Docker CE</h3>
+<h3 id="2-adicione-o-repositório-do-fedora-docker-ce">2. Adicione o repositório do Fedora Docker CE</h3>
 <p>Uma das formas mais simples de instalar o Docker CE é por meio do repositório do Fedora Docker CE. Para adicioná-lo a seu sistema, execute o seguinte comando:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 </code></pre></div><h3 id="3-instale-o-docker-ce">3. Instale o Docker CE</h3>
