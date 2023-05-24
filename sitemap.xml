@@ -1,110 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://delley.github.io/categories/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/tags/go/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/series/go/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/posts/go-modules/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/tags/modules/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/posts/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/series/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/tags/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/posts/retrospectiva-2019/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/series/retrospectiva/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://delley.github.io/categories/retrospectiva/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/series/retrospectiva/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://delley.github.io/tags/retrospectiva-comunidade/</loc>
-    <lastmod>2019-12-22T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://delley.github.io/about/</loc>
     <lastmod>2019-12-14T22:39:37-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/tags/cgroup-v2/</loc>
     <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://delley.github.io/series/docker/</loc>
-    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/tags/docker/</loc>
     <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://delley.github.io/series/docker/</loc>
+    <lastmod>2019-12-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://delley.github.io/categories/ferramentas/</loc>
     <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</loc>
     <lastmod>2019-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://delley.github.io/posts/introducao-ao-go/</loc>
-    <lastmod>2019-12-14T00:00:00-03:00</lastmod>
+    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
   </url>
-  
 </urlset>

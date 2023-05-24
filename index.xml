@@ -6,11 +6,7 @@
     <description>Recent content on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate>
-    
-	<atom:link href="https://delley.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate><atom:link href="https://delley.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Modules: Gerenciamento de Dependências</title>
       <link>https://delley.github.io/posts/go-modules/</link>
@@ -18,18 +14,18 @@
       
       <guid>https://delley.github.io/posts/go-modules/</guid>
       <description>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como dep, godep, govendor e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.
-O que é o Go Modules?  É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências
- The Go Blog - Using Go Modules  Em poucas palavras, Go Modules é a resposta oficial para lidarmos com o Gerenciamento de Dependências em Go.</description>
+O que é o Go Modules? É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências
+The Go Blog - Using Go Modules</description>
     </item>
     
     <item>
       <title>Minha Retrospectiva 2019 como organizador da comunidade Golang SP</title>
       <link>https://delley.github.io/posts/retrospectiva-2019/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 -0300</pubDate>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://delley.github.io/posts/retrospectiva-2019/</guid>
       <description>15 EVENTOS REALIZADOS, 1 WORKSHOP E UMA COORDENAÇÃO!!!
- É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.
+É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.
 Janeiro/2019 Para quem acha que as coisas no Brasil só engrenam depois do carnaval, está completamente equivocado!!!
 Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo Jeff Prestes, lá estava eu fazendo parte da organização dos eventos da Comunidade Golang SP e eu sequer tinha ideia do quanto isso mudaria minha vida.</description>
     </item>
@@ -40,9 +36,9 @@ Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo Jeff
       <pubDate>Sat, 14 Dec 2019 22:39:37 -0300</pubDate>
       
       <guid>https://delley.github.io/about/</guid>
-      <description>Meu nome é Francisco Oliveira e atualmente estou morando em Sigefredo Pacheco, Piaui, Brasil. Sou tecnólogo em Análise e Desenvolvimento de Sistemas pela Fatec Ipiranga e, trabalho como Analista Desenvolvedor Especialista na Engineering.
-Tenho interesse em Desenvolvimento de Sistemas, Cloud Computing, Sistemas Distribuídos, APIs, Microsserviços, Serverless, Engenharia de Software, Integração de Sistemas, DevOps, IoT e Metodologias Ágeis.
-Desde Janeiro de 2019 tenho participado da organização da comunidade Golang SP, e confesso que organizar eventos tem sido uma experiência desafiadora.</description>
+      <description>Meu nome é Francisco Oliveira e atualmente estou morando em Sigefredo Pacheco, Piaui, Brasil. Sou tecnólogo em Análise e Desenvolvimento de Sistemas pela Fatec Ipiranga e trabalho como Analista Desenvolvedor Especialista na Engineering do Brasil.
+Tenho interesse em desenvolvimento de sistemas, sistemas distribuídos, APIs, microsserviços, integração de sistemas, cloud computing, serverless, engenharia de software, DevOps e metodologias ágeis.
+Desde Janeiro de 2019 tenho participado da organização da comunidade Golang SP e confesso que organizar eventos tem sido uma experiência desafiadora.</description>
     </item>
     
     <item>
@@ -59,12 +55,14 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
     <item>
       <title>Introdução ao Go</title>
       <link>https://delley.github.io/posts/introducao-ao-go/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 -0300</pubDate>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://delley.github.io/posts/introducao-ao-go/</guid>
       <description>O que é Go? Como o próprio site define:
- Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.
- golang.org  O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.</description>
+Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.
+golang.org
+O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.
+Go tem uma certa semelhança com C, principalmente no que diz respeito a alcançar o máximo com o mínimo de recursos.</description>
     </item>
     
   </channel>

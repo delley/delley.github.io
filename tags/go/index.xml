@@ -6,11 +6,7 @@
     <description>Recent content in Go on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate>
-    
-	<atom:link href="https://delley.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate><atom:link href="https://delley.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Modules: Gerenciamento de Dependências</title>
       <link>https://delley.github.io/posts/go-modules/</link>
@@ -18,19 +14,21 @@
       
       <guid>https://delley.github.io/posts/go-modules/</guid>
       <description>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como dep, godep, govendor e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.
-O que é o Go Modules?  É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências
- The Go Blog - Using Go Modules  Em poucas palavras, Go Modules é a resposta oficial para lidarmos com o Gerenciamento de Dependências em Go.</description>
+O que é o Go Modules? É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências
+The Go Blog - Using Go Modules</description>
     </item>
     
     <item>
       <title>Introdução ao Go</title>
       <link>https://delley.github.io/posts/introducao-ao-go/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 -0300</pubDate>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://delley.github.io/posts/introducao-ao-go/</guid>
       <description>O que é Go? Como o próprio site define:
- Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.
- golang.org  O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.</description>
+Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.
+golang.org
+O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.
+Go tem uma certa semelhança com C, principalmente no que diz respeito a alcançar o máximo com o mínimo de recursos.</description>
     </item>
     
   </channel>
