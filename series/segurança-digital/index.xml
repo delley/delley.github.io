@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Segurança Digital on Textículos</title>
+    <link>https://delley.github.io/series/seguran%C3%A7a-digital/</link>
+    <description>Recent content in Segurança Digital on Textículos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://delley.github.io/series/seguran%C3%A7a-digital/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
+      <link>https://delley.github.io/posts/react-2-shell/</link>
+      <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://delley.github.io/posts/react-2-shell/</guid>
+      <description>Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — CVE-2025-55182, popularmente apelidada de React2Shell — que afeta React Server Components (RSC) e, por extensão, várias estruturas modernas como Next.js, React Router, Waku e plugins de bundlers. (React) (tenable)</description>
+    </item>
+  </channel>
+</rss>
