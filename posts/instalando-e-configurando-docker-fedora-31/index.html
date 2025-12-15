@@ -107,7 +107,7 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
               <time datetime='2019-12-15T00:00:00Z'>
-                December 15, 2019
+                15 de Dec de 2019
               </time>
             </span>
             <span class="reading-time">
@@ -139,29 +139,29 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
 <h2 id="cgroup-v2">cgroup v2</h2>
 <p>O Fedora 31 é a primeira grande distro que vem com o <code>cgroup v2</code> (também conhecido como hierarquia unificada) habilitada por padrão (mais informações <a href="https://www.redhat.com/sysadmin/fedora-31-control-group-v2">aqui</a>).</p>
 <p>Embora a adoção do <code>cgroup v2</code> seja um passo inevitável, a maioria das implementações de contêineres, incluindo <strong>Docker</strong>/<strong>Moby</strong> e <strong>Kubernetes</strong>, ainda não oferecem suporte e se você instalar e tentar executar o Docker, por exemplo, irá se deparar com o seguinte erro:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run hello-world
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run hello-world
 </span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused <span style="font-style:italic">&#34;process_linux.go:297: applying cgroup configuration for process caused \&#34;open /sys/fs/cgroup/docker/cpuset.cpus.effective: no such file or directory\&#34;&#34;</span>: unknown.
+</span></span><span style="display:flex;"><span>docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused <span style="color:#e6db74">&#34;process_linux.go:297: applying cgroup configuration for process caused \&#34;open /sys/fs/cgroup/docker/cpuset.cpus.effective: no such file or directory\&#34;&#34;</span>: unknown.
 </span></span></code></pre></div><h2 id="passos-para-a-instalação-e-configuração-do-docker-no-fedora-31">Passos para a instalação e configuração do Docker no Fedora 31</h2>
 <p>Para resolver o problema com o <code>cgroup v2</code>, é necessário adicionar alguns passos extras nas instruções fornecidas na documentação oficial.</p>
 <h3 id="1-alterne-para-cgroup-v1">1. Alterne para cgroup v1:</h3>
 <p>A primeira coisa a ser feita é alterar o cgroup para a v1.</p>
 <p>Isso pode ser feito por meio do utilitário <code>grubby</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf install grubby
-</span></span><span style="display:flex;"><span>$ sudo grubby --update-kernel=ALL --args=<span style="font-style:italic">&#34;systemd.unified_cgroup_hierarchy=0&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf install grubby
+</span></span><span style="display:flex;"><span>$ sudo grubby --update-kernel<span style="color:#f92672">=</span>ALL --args<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;systemd.unified_cgroup_hierarchy=0&#34;</span>
 </span></span></code></pre></div><p>Após isso, reinicie o sistema e siga com os passos seguintes para instalar o Docker CE (caso já o tenha instalado, não é necessário seguir os próximos passos)</p>
 <h3 id="2-adicione-o-repositório-do-fedora-docker-ce">2. Adicione o repositório do Fedora Docker CE</h3>
 <p>Uma das formas mais simples de instalar o Docker CE é por meio do repositório do Fedora Docker CE. Para adicioná-lo a seu sistema, execute o seguinte comando:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 </span></span></code></pre></div><h3 id="3-instale-o-docker-ce">3. Instale o Docker CE</h3>
 <p>Após adicionar o repositório, siga com a instalação do Docker CE (isso também irá instalar o <code>docker-ce-cli</code> e o <code>containerd.io</code>). Para isso, execute o seguinte comando:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf install docker-ce
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo dnf install docker-ce
 </span></span></code></pre></div><h3 id="4-habilite-e-inicie-o-daemon-do-docker">4. Habilite e inicie o daemon do Docker:</h3>
 <p>Para habilitar o daemon e iniciá-lo durante a inicialização do sistema, execute o seguinte comando:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable --now docker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable --now docker
 </span></span></code></pre></div><h3 id="5-opcional">5. Opcional</h3>
 <p>Você também pode adicionar seu usuário ao grupo <code>docker</code> para não precisar executá-lo com privilégios de superusuário:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo usermod -aG docker <span style="font-weight:bold">$(</span>whoami<span style="font-weight:bold">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo usermod -aG docker <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
 </span></span></code></pre></div><p>Após executar o comando, é necessário reiniciar o sistema.</p>
 <hr>
 <p>Bom&hellip; é isso!</p>
@@ -181,26 +181,7 @@ Um software que utilizo bastante é o Docker, e é possível instalá-lo seguind
 </section>
 
 
-        <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "texticulos-1" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
         
         
       </footer>
