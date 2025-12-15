@@ -13,7 +13,7 @@
       <link>https://delley.github.io/posts/react-2-shell/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://delley.github.io/posts/react-2-shell/</guid>
-      <description>Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — CVE-2025-55182, popularmente apelidada de React2Shell — que afeta React Server Components (RSC) e, por extensão, várias estruturas modernas como Next.js, React Router, Waku e plugins de bundlers. (React) (tenable)</description>
+      <description>Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — CVE-2025-55182, popularmente apelidada de React2Shell — que afeta React Server Components (RSC) e, por extensão, várias estruturas modernas como Next.js, React Router, Waku e plugins de bundlers. (React) (tenable)&#xA;O que é a Vulnerabilidade React2Shell? React2Shell é uma falha de desserialização insegura no protocolo de comunicação interno chamado Flight, usado pelos React Server Components para transmitir dados entre cliente e servidor.</description>
     </item>
     <item>
       <title>Go Modules: Gerenciamento de Dependências</title>
