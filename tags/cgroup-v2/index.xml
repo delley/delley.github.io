@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cgroup v2 on Textículos</title>
+    <title>Cgroup V2 on Textículos</title>
     <link>https://delley.github.io/tags/cgroup-v2/</link>
-    <description>Recent content in cgroup v2 on Textículos</description>
+    <description>Recent content in Cgroup V2 on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://delley.github.io/tags/cgroup-v2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://delley.github.io/tags/cgroup-v2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalando e configurando o Docker CE no Fedora 31</title>
       <link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
-      <description>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.
-No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.
-Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação.</description>
+      <description>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.&#xA;No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.&#xA;Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação.</description>
     </item>
-    
   </channel>
 </rss>

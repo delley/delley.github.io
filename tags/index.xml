@@ -6,51 +6,42 @@
     <description>Recent content in Tags on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate><atom:link href="https://delley.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Jan 2020 12:26:43 -0300</lastBuildDate>
+    <atom:link href="https://delley.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go</title>
       <link>https://delley.github.io/tags/go/</link>
       <pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
-      
       <guid>https://delley.github.io/tags/go/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Modules</title>
       <link>https://delley.github.io/tags/modules/</link>
       <pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
-      
       <guid>https://delley.github.io/tags/modules/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>retrospectiva, comunidade</title>
+      <title>Retrospectiva, Comunidade</title>
       <link>https://delley.github.io/tags/retrospectiva-comunidade/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://delley.github.io/tags/retrospectiva-comunidade/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cgroup v2</title>
+      <title>Cgroup V2</title>
       <link>https://delley.github.io/tags/cgroup-v2/</link>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://delley.github.io/tags/cgroup-v2/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://delley.github.io/tags/docker/</link>
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://delley.github.io/tags/docker/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

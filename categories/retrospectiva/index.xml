@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>retrospectiva on Textículos</title>
+    <title>Retrospectiva on Textículos</title>
     <link>https://delley.github.io/categories/retrospectiva/</link>
-    <description>Recent content in retrospectiva on Textículos</description>
+    <description>Recent content in Retrospectiva on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://delley.github.io/categories/retrospectiva/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://delley.github.io/categories/retrospectiva/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Minha Retrospectiva 2019 como organizador da comunidade Golang SP</title>
       <link>https://delley.github.io/posts/retrospectiva-2019/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://delley.github.io/posts/retrospectiva-2019/</guid>
-      <description>15 EVENTOS REALIZADOS, 1 WORKSHOP E UMA COORDENAÇÃO!!!
-É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.
-Janeiro/2019 Para quem acha que as coisas no Brasil só engrenam depois do carnaval, está completamente equivocado!!!
-Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo Jeff Prestes, lá estava eu fazendo parte da organização dos eventos da Comunidade Golang SP e eu sequer tinha ideia do quanto isso mudaria minha vida.</description>
+      <description>15 EVENTOS REALIZADOS, 1 WORKSHOP E UMA COORDENAÇÃO!!!&#xA;É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.&#xA;Janeiro/2019 Para quem acha que as coisas no Brasil só engrenam depois do carnaval, está completamente equivocado!!!&#xA;Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo Jeff Prestes, lá estava eu fazendo parte da organização dos eventos da Comunidade Golang SP e eu sequer tinha ideia do quanto isso mudaria minha vida.</description>
     </item>
-    
   </channel>
 </rss>
