@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://delley.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
+      <link>https://delley.github.io/posts/enisa-2025/</link>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://delley.github.io/posts/enisa-2025/</guid>
+      <description>O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do ENISA Threat Landscape 2025, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&#xA;Para organizações que atuam em infraestrutura digital, serviços de TIC e desenvolvimento de software, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.</description>
+    </item>
     <item>
       <title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
       <link>https://delley.github.io/posts/react-2-shell/</link>
