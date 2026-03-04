@@ -3,12 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://delley.github.io/categories/</loc>
-    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://delley.github.io/posts/enisa-2025/</loc>
-    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
+    <loc>https://delley.github.io/tags/encapsulamento/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/posts/encapsulamento-internal/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/tags/go/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/series/go/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/categories/go/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/series/go-em-cordel/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/tags/internal/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://delley.github.io/posts/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/series/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/tags/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/</loc>
+    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delley.github.io/posts/enisa-2025/</loc>
     <lastmod>2025-12-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://delley.github.io/series/seguran%C3%A7a-digital/</loc>
@@ -20,34 +53,16 @@
     <loc>https://delley.github.io/tags/seguran%C3%A7a-digital-cibersegura%C3%A7a/</loc>
     <lastmod>2025-12-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://delley.github.io/series/</loc>
-    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://delley.github.io/tags/</loc>
-    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://delley.github.io/</loc>
-    <lastmod>2025-12-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://delley.github.io/posts/react-2-shell/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://delley.github.io/tags/seguran%C3%A7a-digital-react/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://delley.github.io/tags/go/</loc>
-    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url><url>
-    <loc>https://delley.github.io/series/go/</loc>
-    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url><url>
     <loc>https://delley.github.io/posts/go-modules/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
   </url><url>
     <loc>https://delley.github.io/tags/modules/</loc>
-    <lastmod>2020-01-30T12:26:43-03:00</lastmod>
-  </url><url>
-    <loc>https://delley.github.io/categories/programa%C3%A7%C3%A3o/</loc>
     <lastmod>2020-01-30T12:26:43-03:00</lastmod>
   </url><url>
     <loc>https://delley.github.io/posts/retrospectiva-2019/</loc>

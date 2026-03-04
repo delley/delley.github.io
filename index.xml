@@ -6,8 +6,15 @@
     <description>Recent content on Textículos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-BR</language>
-    <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://delley.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</title>
+      <link>https://delley.github.io/posts/encapsulamento-internal/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://delley.github.io/posts/encapsulamento-internal/</guid>
+      <description>Cordel técnico&#xA;No sertão da arquitetura&#xA;cada módulo tem seu chão&#xA;pacote público é estrada&#xA;mas internal é portão.&#xA;Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: como ela protege aquilo que deve permanecer interno a um projeto. Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:&#xA;protected package-private friend o Go resolveu o problema de encapsulamento de maneira simples, explícita e aplicada pelo compilador.</description>
+    </item>
     <item>
       <title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
       <link>https://delley.github.io/posts/enisa-2025/</link>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Francisco Oliveira">
+    <meta name="description" content="Pequenos textos sobre coisas diversas, em especial tecnologia">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://delley.github.io/images/encapisulamento-internal.png" /><meta name="twitter:title" content="Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!"/>
+<meta name="twitter:description" content="Entendendo o diretório `internal` em Go"/>
+
+    <meta property="og:title" content="Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!" />
+<meta property="og:description" content="Entendendo o diretório `internal` em Go" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://delley.github.io/posts/encapsulamento-internal/" /><meta property="og:image" content="https://delley.github.io/images/encapisulamento-internal.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-03-04T00:00:00+00:00" />
+<meta property="og:see_also" content="https://delley.github.io/posts/go-modules/" /><meta property="og:see_also" content="https://delley.github.io/posts/introducao-ao-go/" />
+
+
+
+
+
+    
+      <base href="https://delley.github.io/posts/encapsulamento-internal/">
+    
+    <title>
+  Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel! · Textículos
+</title>
+
+    
+      <link rel="canonical" href="https://delley.github.io/posts/encapsulamento-internal/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://delley.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.123.7">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://delley.github.io/">
+      Textículos
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://delley.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://delley.github.io/about/">Sobre</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2026-03-04T00:00:00Z'>
+                04 de Mar de 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              6 minutos de leitura
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://delley.github.io/categories/programa%C3%A7%C3%A3o/">Programação</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/categories/go/">Go</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://delley.github.io/tags/go/">Go</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/tags/internal/">Internal</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/tags/encapsulamento/">Encapsulamento</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <figure class="centered"><img src="https://delley.github.io/images/encapisulamento-internal.png"
+         alt="Encapsulamento usando internal"/>
+</figure>
+
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>No sertão da arquitetura<br>
+cada módulo tem seu chão<br>
+pacote público é estrada<br>
+mas <code>internal</code> é portão.</p>
+</blockquote>
+<p>Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: <strong>como ela protege aquilo que deve permanecer interno a um projeto</strong>.
+Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:</p>
+<ul>
+<li><code>protected</code></li>
+<li><code>package-private</code></li>
+<li><code>friend</code></li>
+</ul>
+<p>o Go resolveu o problema de encapsulamento de maneira <strong>simples, explícita e aplicada pelo compilador</strong>. A solução é um mecanismo chamado: <strong>internal</strong></p>
+<p>Neste artigo vamos entender:</p>
+<ul>
+<li>o problema que ele resolve</li>
+<li>como funciona</li>
+<li>por que ele existe</li>
+<li>como utilizá-lo corretamente em projetos Go modernos</li>
+</ul>
+<hr>
+<h2 id="o-problema-apis-que-vazam-sem-controle">O problema: APIs que vazam sem controle</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Código solto vira trilha<br>
+que qualquer um pode cruzar<br>
+detalhe vira dependência<br>
+difícil depois refatorar.</p>
+</blockquote>
+<p>Em Go, qualquer pacote pode ser importado por outro módulo, desde que:</p>
+<ul>
+<li>esteja dentro de um módulo válido</li>
+<li>possua identificadores exportados (iniciando com letra maiúscula)</li>
+</ul>
+<p>Por exemplo:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="font-style:italic">&#34;github.com/exemplo/projeto/repository&#34;</span>
+</span></span></code></pre></div><p>Se um pacote exporta símbolos públicos, <strong>qualquer outro projeto pode depender dele</strong>.
+Isso pode parecer inofensivo, mas em projetos grandes cria um problema sério.
+Trechos internos de implementação acabam se tornando <strong>dependências externas acidentais</strong>.
+Esse tipo de vazamento gera vários problemas:</p>
+<ul>
+<li>dificulta refatorações</li>
+<li>cria dependências implícitas</li>
+<li>transforma detalhes internos em APIs públicas</li>
+<li>aumenta o acoplamento entre projetos</li>
+</ul>
+<p>No mundo real, isso é como uma cerca mal feita no sertão:</p>
+<blockquote>
+<p>quando o dono percebe, o gado já atravessou a divisa.</p>
+</blockquote>
+<p>Foi exatamente para evitar esse cenário que surgiu o diretório <strong><code>internal</code></strong>.</p>
+<hr>
+<h2 id="o-que-é-o-diretório-internal">O que é o diretório <code>internal</code></h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>O Go não usa mil palavras<br>
+nem regra complicada não<br>
+criou só uma pastinha<br>
+que funciona como portão.</p>
+</blockquote>
+<p>O diretório <code>internal</code> é um <strong>mecanismo oficial da linguagem Go para controle de importação de pacotes</strong>.</p>
+<p>A regra é simples:</p>
+<blockquote>
+<p>Um pacote localizado dentro de um diretório chamado <code>internal</code> <strong>só pode ser importado por código que esteja dentro da mesma árvore de diretórios do módulo pai</strong>.</p>
+</blockquote>
+<p>Essa regra:</p>
+<ul>
+<li><strong>não é uma convenção</strong></li>
+<li><strong>não depende de ferramentas</strong></li>
+<li><strong>é aplicada diretamente pelo compilador Go</strong></li>
+</ul>
+<p>Ou seja, se alguém tentar importar esse pacote de fora do módulo, a compilação falha.</p>
+<hr>
+<h2 id="a-regra-do-internal-na-prática">A regra do <code>internal</code> na prática</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Quem mora dentro da casa<br>
+pode entrar no corredor<br>
+mas quem vem de fora encontra<br>
+o compilador como vigia e guardador.</p>
+</blockquote>
+<p>Considere a seguinte estrutura:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>meuapp/  
+</span></span><span style="display:flex;"><span>├── go.mod  
+</span></span><span style="display:flex;"><span>├── main.go  
+</span></span><span style="display:flex;"><span>├── service/  
+</span></span><span style="display:flex;"><span>│   └── user.go  
+</span></span><span style="display:flex;"><span>└── internal/  
+</span></span><span style="display:flex;"><span>    └── repository/  
+</span></span><span style="display:flex;"><span>        └── user_repository.go
+</span></span></code></pre></div><p>O pacote: <code>meuapp/internal/repository</code></p>
+<h4 id="importações-permitidas">Importações permitidas</h4>
+<p>Qualquer código <strong>dentro de <code>meuapp/</code></strong> pode importar esse pacote:</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="font-style:italic">&#34;github.com/delley/meuapp/internal/repository&#34;</span>
+</span></span></code></pre></div><p>Arquivos que podem importar:</p>
+<ul>
+<li><code>main.go</code></li>
+<li><code>service/user.go</code></li>
+<li>qualquer outro pacote dentro do módulo</li>
+</ul>
+<h4 id="importações-proibidas">Importações proibidas</h4>
+<p>Agora imagine outro projeto:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>outroapp/  
+</span></span><span style="display:flex;"><span>└── main.go
+</span></span></code></pre></div><p>Se ele tentar importar:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="font-style:italic">&#34;github.com/delley/meuapp/internal/repository&#34;</span>
+</span></span></code></pre></div><p>O compilador retornará:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>use of internal <span style="font-weight:bold">package</span> github.com/delley/meuapp/internal/repository not allowed
+</span></span></code></pre></div><p>Ou seja: <strong>o Go bloqueia o acesso na origem</strong>.</p>
+<h4 id="diagrama-do-comportamento-do-internal">Diagrama do comportamento do <code>internal</code></h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>             <span style="">┌───────────────────────┐</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>        meuapp         <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>                       <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">┌─────────────┐</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">│</span>   service   <span style="">│</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">└──────┬──────┘</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>           <span style="">│</span> permitido <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>           <span style="">▼</span>           <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">┌─────────────┐</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">│</span>  internal   <span style="">│</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">│</span> repository  <span style="">│</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>    <span style="">└─────────────┘</span>    <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>           <span style="">▲</span>           <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">│</span>           <span style="">│</span>           <span style="">│</span>
+</span></span><span style="display:flex;"><span>             <span style="">└───────────╀───────────┘</span>
+</span></span><span style="display:flex;"><span>                         <span style="">│</span>
+</span></span><span style="display:flex;"><span>                         <span style="">│</span> proibido
+</span></span><span style="display:flex;"><span>                         <span style="">│</span>
+</span></span><span style="display:flex;"><span>                         <span style="">│</span>
+</span></span><span style="display:flex;"><span>                <span style="">┌────────┴────────┐</span>
+</span></span><span style="display:flex;"><span>                <span style="">│</span>    outroapp     <span style="">│</span>
+</span></span><span style="display:flex;"><span>                <span style="">│</span>                 <span style="">│</span>
+</span></span><span style="display:flex;"><span>                <span style="">│</span>    main.<span style="font-weight:bold">go</span>      <span style="">│</span>
+</span></span><span style="display:flex;"><span>                <span style="">└─────────────────┘</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>         use of internal <span style="font-weight:bold">package</span> not allowed
+</span></span></code></pre></div><hr>
+<h2 id="internal-não-substitui-visibilidade-por-pacote"><code>internal</code> não substitui visibilidade por pacote</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Símbolo pequeno esconde<br>
+dentro do próprio lugar<br>
+mas internal fecha a cerca<br>
+pra ninguém de fora importar.</p>
+</blockquote>
+<p>É importante entender que <code>internal</code> <strong>não controla visibilidade de símbolos</strong>.
+Ele controla <strong>quem pode importar o pacote</strong>.
+Em Go existem dois níveis distintos de encapsulamento:</p>
+<table>
+<thead>
+<tr>
+<th>Mecanismo</th>
+<th>Escopo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identificadores minúsculos</td>
+<td>dentro do pacote</td>
+</tr>
+<tr>
+<td>diretório <code>internal</code></td>
+<td>dentro da árvore do módulo</td>
+</tr>
+</tbody>
+</table>
+<p>Eles atuam <strong>em camadas diferentes da arquitetura</strong>, sendo <strong>complementares</strong>, não concorrentes.</p>
+<hr>
+<h2 id="internal-em-múltiplos-níveis"><code>internal</code> em múltiplos níveis</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Dentro da mesma fazenda<br>
+tem curral e tem divisão<br>
+cada cerca guarda um trecho<br>
+do domínio da aplicação.</p>
+</blockquote>
+<p>Nada impede que você tenha vários diretórios <code>internal</code> em diferentes partes do projeto.</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>meuapp/  
+</span></span><span style="display:flex;"><span>├── internal/  
+</span></span><span style="display:flex;"><span>│   └── config/  
+</span></span><span style="display:flex;"><span>├── service/  
+</span></span><span style="display:flex;"><span>│   ├── internal/  
+</span></span><span style="display:flex;"><span>│   │   └── validator/  
+</span></span><span style="display:flex;"><span>│   └── user.go
+</span></span></code></pre></div><p>Isso gera duas regras diferentes.</p>
+<ul>
+<li>Pacote <code>meuapp/internal/config</code>:<br>
+→ acessível por qualquer pacote dentro de <code>meuapp</code></li>
+<li><code>meuapp/service/internal/validator</code>:<br>
+→ acessível <strong>apenas</strong> por pacotes dentro de <code>meuapp/service</code></li>
+</ul>
+<p>Isso permite <strong>isolamento por domínio</strong>, não apenas por aplicação.</p>
+<p><strong>Acesso permitido</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>user.go ───► validator
+</span></span><span style="display:flex;"><span>user.go ───► config
+</span></span></code></pre></div><p><strong>Acesso proibido</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>config ─X─► validator
+</span></span><span style="display:flex;"><span>outro módulo ─X─► config
+</span></span></code></pre></div><hr>
+<h2 id="por-que-o-go-introduziu-o-internal">Por que o Go introduziu o <code>internal</code></h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Não foi moda nem capricho<br>
+de quem gosta de inovar<br>
+foi remédio pra arquitetura<br>
+não deixar API vazar.</p>
+</blockquote>
+<p>O objetivo do <code>internal</code> é direto e pragmático. Ele existe para resolver três problemas reais:</p>
+<ol>
+<li>
+<p><strong>Evitar vazamento de API</strong><br>
+Pacotes internos deixam claro que não fazem parte da API pública.
+Isso impede dependências externas acidentais.</p>
+</li>
+<li>
+<p><strong>Forçar arquitetura saudável</strong><br>
+Sem <code>internal</code>, qualquer camada poderia importar qualquer outra.
+Com <code>internal</code>, o design arquitetural fica mais protegido.</p>
+</li>
+<li>
+<p><strong>Comunicar intenção</strong><br>
+Quando um desenvolvedor vê um diretório chamado: <code>internal</code>, a mensagem é clara: <em><strong>“Este código não faz parte da API pública.”</strong></em></p>
+</li>
+</ol>
+<hr>
+<h2 id="uso-típico-em-projetos-reais">Uso típico em projetos reais</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Projeto bem organizado<br>
+tem começo, meio e razão<br>
+<code>cmd</code> chama o programa<br>
+<code>internal</code> guarda o coração.</p>
+</blockquote>
+<p>Em projetos bem estruturados, o <code>internal</code> costuma abrigar:</p>
+<ul>
+<li>domínio</li>
+<li>regras de negócio</li>
+<li>infraestrutura</li>
+<li>adapters</li>
+<li>casos de uso</li>
+</ul>
+<p>Um layout bastante comum:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>myapp/
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── cmd/
+</span></span><span style="display:flex;"><span>│   └── api/
+</span></span><span style="display:flex;"><span>│       └── main.go
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── internal/
+</span></span><span style="display:flex;"><span>│   ├── domain/
+</span></span><span style="display:flex;"><span>│   ├── application/
+</span></span><span style="display:flex;"><span>│   ├── infrastructure/
+</span></span><span style="display:flex;"><span>│   └── adapters/
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>└── pkg/
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Diretório</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmd</code></td>
+<td>pontos de entrada</td>
+</tr>
+<tr>
+<td><code>internal</code></td>
+<td>coração da aplicação</td>
+</tr>
+<tr>
+<td><code>pkg</code></td>
+<td>código reutilizável por terceiros (quando necessário)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="erros-comuns-ao-usar-internal">Erros comuns ao usar <code>internal</code></h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Se usar sem pensamento<br>
+vira só mais um porão<br>
+diretório cheio de código<br>
+sem nenhuma direção.</p>
+</blockquote>
+<ol>
+<li>
+<p>Colocar tudo em <code>internal</code> sem critério<br>
+Se um pacote <strong>é parte da API pública</strong>, ele não deveria estar em <code>internal</code>.</p>
+</li>
+<li>
+<p>Usar <code>internal</code> para esconder problemas de design<br>
+Ele não corrige dependências ruins, ele apenas restringe quem pode importar.</p>
+</li>
+<li>
+<p>Criar dependências cruzadas entre <code>internal</code><br>
+O compilador permite, mas a arquitetura sofre.</p>
+</li>
+</ol>
+<hr>
+<h2 id="quando-não-usar-internal">Quando NÃO usar <code>internal</code></h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Se o código é estrada pública<br>
+pra outros poderem passar<br>
+não levante cerca alta<br>
+deixe o pacote importar.</p>
+</blockquote>
+<p>Existem casos onde <code>internal</code> <strong>não é apropriado</strong>.</p>
+<p>Por exemplo:</p>
+<ul>
+<li>bibliotecas públicas</li>
+<li>SDKs</li>
+<li>pacotes utilitários reutilizáveis</li>
+<li>frameworks</li>
+</ul>
+<p>Se o pacote deve ser usado por outros projetos, ele <strong>não deve ficar em <code>internal</code></strong>.</p>
+<hr>
+<h2 id="regra-prática-para-decidir">Regra prática para decidir</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Pergunta simples resolve<br>
+sem precisar filosofar<br>
+isso é parte da API<br>
+ou só código do lugar?</p>
+</blockquote>
+<p>Uma pergunta simples resolve 90% dos casos: <strong>Esse pacote deveria ser importável por outro projeto?</strong></p>
+<ul>
+<li><strong>Sim</strong> → não use <code>internal</code></li>
+<li><strong>Não</strong> → use <code>internal</code></li>
+</ul>
+<hr>
+<h2 id="conclusão">Conclusão</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>O Go gosta de clareza<br>
+regra simples de aplicar<br>
+quem é da casa atravessa<br>
+quem é de fora não vai entrar.</p>
+</blockquote>
+<p>O diretório <code>internal</code> é um dos exemplos mais elegantes da filosofia do Go, <strong>simples</strong>, <strong>explícito</strong>, <strong>direto</strong>, <strong>sem mágica</strong>, <strong>sem convenções frágeis</strong>, apenas uma regra clara aplicada pelo compilador.</p>
+<p>Quando bem utilizado, ele <strong>protege sua base de código</strong>, <strong>reduz acoplamento</strong>, <strong>facilita evolução</strong>, <strong>comunica intenção arquitetural</strong>.</p>
+<p>No fim das contas, o <code>internal</code> não é apenas um diretório.</p>
+<p>É uma <strong>regra de arquitetura aplicada pela própria linguagem</strong>.</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://go.dev/doc/go1.4#internalpackages">Go Blog - Internal Packages</a></li>
+</ul>
+
+      </div>
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3>Veja também em Go</h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://delley.github.io/posts/go-modules/">Go Modules: Gerenciamento de Dependências</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://delley.github.io/posts/introducao-ao-go/">Introdução ao Go</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "texticulos-1" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Textículos: Pequenos textos.</p>
+    
+     © 2026
+    
+       · 
+      Promovido por <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
