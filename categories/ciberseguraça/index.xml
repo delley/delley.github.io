@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ciberseguraça on Textículos</title>
+		<link>https://delley.github.io/categories/cibersegura%C3%A7a/</link>
+		<description>Recent content in Ciberseguraça on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/categories/cibersegura%C3%A7a/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
+				<link>https://delley.github.io/posts/enisa-2025/</link>
+				<pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/enisa-2025/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/enisa-2025.jpg&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;ENISA 2025&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do &lt;strong&gt;ENISA Threat Landscape 2025&lt;/strong&gt;, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&lt;/p&gt;&#xA;&lt;p&gt;Para organizações que atuam em &lt;strong&gt;infraestrutura digital, serviços de tecnologia da informação e comunicação (TIC) e desenvolvimento de software&lt;/strong&gt;, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

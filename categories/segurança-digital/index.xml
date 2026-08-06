@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Segurança Digital on Textículos</title>
-    <link>https://delley.github.io/categories/seguran%C3%A7a-digital/</link>
-    <description>Recent content in Segurança Digital on Textículos</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://delley.github.io/categories/seguran%C3%A7a-digital/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
-      <link>https://delley.github.io/posts/enisa-2025/</link>
-      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/enisa-2025/</guid>
-      <description>O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do ENISA Threat Landscape 2025, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&#xA;Para organizações que atuam em infraestrutura digital, serviços de tecnologia da informação e comunicação (TIC) e desenvolvimento de software, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.</description>
-    </item>
-    <item>
-      <title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
-      <link>https://delley.github.io/posts/react-2-shell/</link>
-      <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/react-2-shell/</guid>
-      <description>Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — CVE-2025-55182, popularmente apelidada de React2Shell — que afeta React Server Components (RSC) e, por extensão, várias estruturas modernas como Next.js, React Router, Waku e plugins de bundlers. (React) (tenable)&#xA;O que é a Vulnerabilidade React2Shell? React2Shell é uma falha de desserialização insegura no protocolo de comunicação interno chamado Flight, usado pelos React Server Components para transmitir dados entre cliente e servidor.</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Segurança Digital on Textículos</title>
+		<link>https://delley.github.io/categories/seguran%C3%A7a-digital/</link>
+		<description>Recent content in Segurança Digital on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/categories/seguran%C3%A7a-digital/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
+				<link>https://delley.github.io/posts/enisa-2025/</link>
+				<pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/enisa-2025/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/enisa-2025.jpg&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;ENISA 2025&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do &lt;strong&gt;ENISA Threat Landscape 2025&lt;/strong&gt;, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&lt;/p&gt;&#xA;&lt;p&gt;Para organizações que atuam em &lt;strong&gt;infraestrutura digital, serviços de tecnologia da informação e comunicação (TIC) e desenvolvimento de software&lt;/strong&gt;, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
+				<link>https://delley.github.io/posts/react-2-shell/</link>
+				<pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/react-2-shell/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/react-2-shell.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;React2Shell&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — &lt;strong&gt;CVE-2025-55182&lt;/strong&gt;, popularmente apelidada de &lt;strong&gt;React2Shell&lt;/strong&gt; — que afeta &lt;strong&gt;React Server Components (RSC)&lt;/strong&gt; e, por extensão, várias estruturas modernas como &lt;strong&gt;Next.js&lt;/strong&gt;, &lt;strong&gt;React Router&lt;/strong&gt;, &lt;strong&gt;Waku&lt;/strong&gt; e plugins de bundlers. (&lt;a href=&#34;https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React&lt;/a&gt;) (&lt;a href=&#34;https://www.tenable.com/blog/react2shell-cve-2025-55182-react-server-components-rce&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tenable&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;h2 id=&#34;o-que-é-a-vulnerabilidade-react2shell&#34;&gt;&#xA;  O que é a Vulnerabilidade React2Shell?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#o-que-%c3%a9-a-vulnerabilidade-react2shell&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;React2Shell é uma &lt;strong&gt;falha de desserialização insegura&lt;/strong&gt; no protocolo de comunicação interno chamado &lt;strong&gt;Flight&lt;/strong&gt;, usado pelos &lt;strong&gt;React Server Components&lt;/strong&gt; para transmitir dados entre cliente e servidor. Quando um servidor recebe um &lt;em&gt;payload&lt;/em&gt; manipulado, o código de desserialização trata a entrada como confiável, permitindo que um invasor remoto execute &lt;strong&gt;código arbitrário no servidor sem qualquer autenticação&lt;/strong&gt;.(&lt;a href=&#34;https://aws.amazon.com/pt/blogs/security/china-nexus-cyber-threat-groups-rapidly-exploit-react2shell-vulnerability-cve-2025-55182/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Amazon&lt;/a&gt;) (&lt;a href=&#34;https://blog.cloudflare.com/react2shell-rsc-vulnerabilities-exploitation-threat-brief/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare&lt;/a&gt;)&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

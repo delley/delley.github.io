@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Engenharia De Software on Textículos</title>
+		<link>https://delley.github.io/tags/engenharia-de-software/</link>
+		<description>Recent content in Engenharia De Software on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 05 Aug 2026 21:23:00 -0300</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/tags/engenharia-de-software/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Como Estruturar um Projeto Go para Escalar</title>
+				<link>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</link>
+				<pubDate>Wed, 05 Aug 2026 21:23:00 -0300</pubDate>
+				<guid>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/estrurar-projeto-escalar.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Encapsulamento usando internal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cordel técnico&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Quando o projeto é pequeno,&lt;br&gt;&#xA;Tudo parece funcionar.&lt;br&gt;&#xA;Mas basta o sistema crescer&lt;br&gt;&#xA;Para a conta começar.&lt;br&gt;&#xA;Sem fronteira e disciplina,&lt;br&gt;&#xA;Todo ajuste faz quebrar.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços.&lt;/p&gt;&#xA;&lt;p&gt;Uma estrutura sustentável deve favorecer:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;baixo acoplamento;&lt;/li&gt;&#xA;&lt;li&gt;alta coesão;&lt;/li&gt;&#xA;&lt;li&gt;dependências explícitas;&lt;/li&gt;&#xA;&lt;li&gt;testabilidade;&lt;/li&gt;&#xA;&lt;li&gt;observabilidade;&lt;/li&gt;&#xA;&lt;li&gt;evolução incremental.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Para a maioria dos sistemas, um bom ponto de partida é um &lt;strong&gt;monólito modular organizado por domínio&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Neste artigo, veremos como estruturar uma aplicação Go de modo que ela possa crescer sem transformar cada nova funcionalidade em uma travessia por um labirinto de pacotes, interfaces e dependências.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

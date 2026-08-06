@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Docker on Textículos</title>
-    <link>https://delley.github.io/series/docker/</link>
-    <description>Recent content in Docker on Textículos</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://delley.github.io/series/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Instalando e configurando o Docker CE no Fedora 31</title>
-      <link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
-      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
-      <description>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.&#xA;No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.&#xA;Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação.</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Docker on Textículos</title>
+		<link>https://delley.github.io/series/docker/</link>
+		<description>Recent content in Docker on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/series/docker/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Instalando e configurando o Docker CE no Fedora 31</title>
+				<link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
+				<pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/docker-fedora-31.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Docker &amp;#43; Fedora 31&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.&lt;/p&gt;&#xA;&lt;p&gt;No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.&lt;/p&gt;&#xA;&lt;p&gt;Um software que utilizo bastante é o &lt;a href=&#34;https://www.docker.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker&lt;/a&gt;, e é possível instalá-lo seguindo os passos fornecidos na &lt;a href=&#34;https://docs.docker.com/install/linux/docker-ce/fedora/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentação&lt;/a&gt;. Porém, devido a alguns inconvenientes, os passos descritos aqui podem salvar o seu dia!!! &amp;#x1f44a;&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

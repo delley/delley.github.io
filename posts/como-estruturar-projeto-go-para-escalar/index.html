@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Francisco Oliveira">
+    <meta name="description" content="Pequenos textos sobre coisas diversas, em especial tecnologia">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://delley.github.io/images/estrurar-projeto-escalar.png">
+	<meta name="twitter:title" content="Como Estruturar um Projeto Go para Escalar">
+	<meta name="twitter:description" content="Um cordel técnico sobre como estruturar projetos Go com monólito modular, pacotes orientados ao domínio, interfaces pequenas, observabilidade e evolução sustentável.">
+
+    <meta property="og:url" content="https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/">
+	<meta property="og:site_name" content="Textículos">
+	<meta property="og:title" content="Como Estruturar um Projeto Go para Escalar">
+	<meta property="og:description" content="Um cordel técnico sobre como estruturar projetos Go com monólito modular, pacotes orientados ao domínio, interfaces pequenas, observabilidade e evolução sustentável.">
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-08-05T21:23:00-03:00">
+		<meta property="article:modified_time" content="2026-08-05T21:23:00-03:00">
+		<meta property="article:tag" content="Go">
+		<meta property="article:tag" content="Arquitetura De Software">
+		<meta property="article:tag" content="Engenharia De Software">
+		<meta property="article:tag" content="Sistemas Distribuídos">
+		<meta property="og:image" content="https://delley.github.io/images/estrurar-projeto-escalar.png">
+
+
+    
+      <base href="https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/">
+    
+    <title>
+  Como Estruturar um Projeto Go para Escalar · Textículos
+</title>
+
+    
+      <link rel="canonical" href="https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://delley.github.io/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://delley.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.164.0">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://delley.github.io/">
+      Textículos
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://delley.github.io/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://delley.github.io/about/">Sobre</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/">
+              Como Estruturar um Projeto Go para Escalar
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-08-05T21:23:00-03:00">
+                05 de ago. de 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              21 minutos de leitura
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="https://delley.github.io/categories/go/">Go</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/categories/arquitetura-de-software/">Arquitetura De Software</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/categories/engenharia-de-software/">Engenharia De Software</a>
+      <span class="separator">•</span>
+    <a href="https://delley.github.io/categories/go-em-cordel/">Go Em Cordel</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://delley.github.io/tags/go/">Go</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="https://delley.github.io/tags/arquitetura-de-software/">Arquitetura De Software</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="https://delley.github.io/tags/engenharia-de-software/">Engenharia De Software</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="https://delley.github.io/tags/sistemas-distribu%C3%ADdos/">Sistemas Distribuídos</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <figure class="centered"><img src="https://delley.github.io/images/estrurar-projeto-escalar.png"
+			alt="Encapsulamento usando internal">
+</figure>
+
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Quando o projeto é pequeno,<br>
+Tudo parece funcionar.<br>
+Mas basta o sistema crescer<br>
+Para a conta começar.<br>
+Sem fronteira e disciplina,<br>
+Todo ajuste faz quebrar.</p>
+</blockquote>
+<p>Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços.</p>
+<p>Uma estrutura sustentável deve favorecer:</p>
+<ul>
+<li>baixo acoplamento;</li>
+<li>alta coesão;</li>
+<li>dependências explícitas;</li>
+<li>testabilidade;</li>
+<li>observabilidade;</li>
+<li>evolução incremental.</li>
+</ul>
+<p>Para a maioria dos sistemas, um bom ponto de partida é um <strong>monólito modular organizado por domínio</strong>.</p>
+<p>Neste artigo, veremos como estruturar uma aplicação Go de modo que ela possa crescer sem transformar cada nova funcionalidade em uma travessia por um labirinto de pacotes, interfaces e dependências.</p>
+<h2 id="o-que-significa-escalar-um-projeto-go">
+  O que significa escalar um projeto Go?
+  <a class="heading-link" href="#o-que-significa-escalar-um-projeto-go">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Escalar não é somente<br>
+Mais instância levantar.<br>
+É deixar código e equipe<br>
+Em conjunto avançar.<br>
+Sem que toda nova mudança<br>
+Faça o sistema tombar.</p>
+</blockquote>
+<p>Quando falamos em escala, normalmente pensamos em tráfego, quantidade de usuários ou volume de processamento.</p>
+<p>Entretanto, uma aplicação também precisa escalar em outras dimensões:</p>
+<ul>
+<li>quantidade de funcionalidades;</li>
+<li>número de integrações;</li>
+<li>tamanho da equipe;</li>
+<li>volume de regras de negócio;</li>
+<li>quantidade de executáveis;</li>
+<li>complexidade operacional;</li>
+<li>frequência de implantação.</li>
+</ul>
+<p>Um projeto Go escala bem quando permite:</p>
+<ol>
+<li>adicionar funcionalidades sem quebrar módulos não relacionados;</li>
+<li>substituir integrações externas com impacto controlado;</li>
+<li>testar regras de negócio sem iniciar toda a infraestrutura;</li>
+<li>executar múltiplas instâncias da aplicação;</li>
+<li>identificar rapidamente onde determinado comportamento está implementado;</li>
+<li>extrair módulos para serviços independentes, caso isso se torne necessário.</li>
+</ol>
+<p>Portanto, escalar não é apenas uma questão de infraestrutura. É também uma questão de <strong>organização e capacidade de evolução</strong>.</p>
+<hr>
+<h2 id="comece-com-um-monólito-modular">
+  Comece com um monólito modular
+  <a class="heading-link" href="#comece-com-um-mon%c3%b3lito-modular">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Microserviço é bonito<br>
+No desenho e apresentação.<br>
+Mas espalhar um sistema cedo<br>
+Pode aumentar a confusão.<br>
+Primeiro firme as fronteiras,<br>
+Depois pense em distribuição.</p>
+</blockquote>
+<p>Um monólito modular mantém a aplicação em uma única unidade de implantação, mas divide o código em módulos de negócio claramente definidos.</p>
+<p>Uma estrutura inicial pode ser:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>my-project/
+</span></span><span style="display:flex;"><span>├── cmd/
+</span></span><span style="display:flex;"><span>│   ├── api/
+</span></span><span style="display:flex;"><span>│   │   └── main.go
+</span></span><span style="display:flex;"><span>│   ├── worker/
+</span></span><span style="display:flex;"><span>│   │   └── main.go
+</span></span><span style="display:flex;"><span>│   └── migrate/
+</span></span><span style="display:flex;"><span>│       └── main.go
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── internal/
+</span></span><span style="display:flex;"><span>│   ├── account/
+</span></span><span style="display:flex;"><span>│   ├── billing/
+</span></span><span style="display:flex;"><span>│   ├── order/
+</span></span><span style="display:flex;"><span>│   ├── platform/
+</span></span><span style="display:flex;"><span>│   └── app/
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── migrations/
+</span></span><span style="display:flex;"><span>├── api/
+</span></span><span style="display:flex;"><span>│   └── openapi.yaml
+</span></span><span style="display:flex;"><span>├── deployments/
+</span></span><span style="display:flex;"><span>├── scripts/
+</span></span><span style="display:flex;"><span>├── go.mod
+</span></span><span style="display:flex;"><span>├── go.sum
+</span></span><span style="display:flex;"><span>└── Makefile
+</span></span></code></pre></div><p>A ideia central é organizar o código pelas capacidades do sistema, e não apenas pelos tipos técnicos utilizados.</p>
+<p>Uma estrutura exclusivamente técnica normalmente se parece com isto:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── handlers/
+</span></span><span style="display:flex;"><span>├── services/
+</span></span><span style="display:flex;"><span>├── repositories/
+</span></span><span style="display:flex;"><span>├── controllers/
+</span></span><span style="display:flex;"><span>└── models/
+</span></span></code></pre></div><p>Embora pareça organizada, ela espalha uma única funcionalidade por vários diretórios.</p>
+<p>Para modificar o fluxo de pedidos, por exemplo, provavelmente será necessário navegar por:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>handlers/order.go
+</span></span><span style="display:flex;"><span>services/order.go
+</span></span><span style="display:flex;"><span>repositories/order.go
+</span></span><span style="display:flex;"><span>models/order.go
+</span></span><span style="display:flex;"><span>controllers/order.go
+</span></span></code></pre></div><p>Uma organização orientada ao domínio mantém os elementos relacionados próximos:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── customer/
+</span></span><span style="display:flex;"><span>├── order/
+</span></span><span style="display:flex;"><span>├── payment/
+</span></span><span style="display:flex;"><span>└── inventory/
+</span></span></code></pre></div><p>Dessa forma, uma alteração no domínio de pedidos permanece concentrada dentro de <code>internal/order</code>.</p>
+<p>Essa abordagem reduz a carga cognitiva e melhora a capacidade de compreender o impacto de uma mudança.</p>
+<hr>
+<h2 id="o-diretório-cmd">
+  O diretório <code>cmd</code>
+  <a class="heading-link" href="#o-diret%c3%b3rio-cmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Cada programa tem entrada,<br>
+Cada entrada tem função.<br>
+Um atende pela API,<br>
+Outro escuta a integração.<br>
+Mas o <code>main</code> não deve carregar<br>
+Toda a regra da aplicação.</p>
+</blockquote>
+<p>O diretório <code>cmd</code> contém os pontos de entrada dos executáveis do projeto.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cmd/
+</span></span><span style="display:flex;"><span>├── api/
+</span></span><span style="display:flex;"><span>├── worker/
+</span></span><span style="display:flex;"><span>├── scheduler/
+</span></span><span style="display:flex;"><span>├── migrate/
+</span></span><span style="display:flex;"><span>└── cli/
+</span></span></code></pre></div><p>Cada subdiretório representa um programa diferente:</p>
+<ul>
+<li><code>api</code>: servidor HTTP;</li>
+<li><code>worker</code>: consumidor de mensagens;</li>
+<li><code>scheduler</code>: execução de tarefas periódicas;</li>
+<li><code>migrate</code>: gerenciamento de migrações;</li>
+<li><code>cli</code>: comandos administrativos.</li>
+</ul>
+<p>O arquivo <code>main.go</code> deve permanecer pequeno.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;log/slog&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;os/signal&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;syscall&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;example.com/project/internal/app&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	ctx, cancel := signal.NotifyContext(
+</span></span><span style="display:flex;"><span>		context.Background(),
+</span></span><span style="display:flex;"><span>		os.Interrupt,
+</span></span><span style="display:flex;"><span>		syscall.SIGTERM,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">defer</span> cancel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	application, err := app.New()
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		slog.Error(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;failed to initialize application&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;error&#34;</span>,
+</span></span><span style="display:flex;"><span>			err,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>		os.Exit(1)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err := application.Run(ctx); err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		slog.Error(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;application stopped with error&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;error&#34;</span>,
+</span></span><span style="display:flex;"><span>			err,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>		os.Exit(1)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>O <code>main.go</code> deve ser responsável principalmente por:</p>
+<ol>
+<li>carregar a configuração;</li>
+<li>inicializar a aplicação;</li>
+<li>iniciar a execução;</li>
+<li>capturar sinais do sistema operacional;</li>
+<li>coordenar o encerramento.</li>
+</ol>
+<p>Evite colocar no <code>main.go</code>:</p>
+<ul>
+<li>consultas SQL;</li>
+<li>regras de negócio;</li>
+<li>configuração detalhada de rotas;</li>
+<li>clientes HTTP externos;</li>
+<li>serialização;</li>
+<li>manipulação de mensagens;</li>
+<li>lógica de autorização;</li>
+<li>dezenas de construções de dependências espalhadas.</li>
+</ul>
+<p>O <code>main</code> deve funcionar como a porta de entrada, não como o lugar onde toda a aplicação mora.</p>
+<hr>
+<h2 id="o-diretório-internal">
+  O diretório <code>internal</code>
+  <a class="heading-link" href="#o-diret%c3%b3rio-internal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Dentro de <code>internal</code><br>
+O projeto faz proteção.<br>
+O pacote fica guardado<br>
+Contra externa importação.<br>
+A própria linguagem ajuda<br>
+A manter a separação.</p>
+</blockquote>
+<p>O diretório <code>internal</code> possui comportamento especial em Go.</p>
+<p>Pacotes armazenados dentro dele não podem ser importados livremente por módulos externos que estejam fora da árvore permitida.</p>
+<p>Isso permite proteger detalhes internos da aplicação.</p>
+<p>Um módulo simples pode começar assim:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/
+</span></span><span style="display:flex;"><span>├── order.go
+</span></span><span style="display:flex;"><span>├── service.go
+</span></span><span style="display:flex;"><span>├── repository.go
+</span></span><span style="display:flex;"><span>├── errors.go
+</span></span><span style="display:flex;"><span>├── handler.go
+</span></span><span style="display:flex;"><span>└── postgres.go
+</span></span></code></pre></div><p>Essa estrutura plana é adequada enquanto o módulo ainda possui tamanho reduzido.</p>
+<p>Não é necessário começar imediatamente com:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>domain/
+</span></span><span style="display:flex;"><span>application/
+</span></span><span style="display:flex;"><span>ports/
+</span></span><span style="display:flex;"><span>adapters/
+</span></span><span style="display:flex;"><span>infrastructure/
+</span></span></code></pre></div><p>Quando o módulo crescer, a divisão pode ser feita gradualmente:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/
+</span></span><span style="display:flex;"><span>├── domain/
+</span></span><span style="display:flex;"><span>│   ├── order.go
+</span></span><span style="display:flex;"><span>│   └── errors.go
+</span></span><span style="display:flex;"><span>├── application/
+</span></span><span style="display:flex;"><span>│   ├── create_order.go
+</span></span><span style="display:flex;"><span>│   └── cancel_order.go
+</span></span><span style="display:flex;"><span>├── postgres/
+</span></span><span style="display:flex;"><span>│   └── repository.go
+</span></span><span style="display:flex;"><span>└── http/
+</span></span><span style="display:flex;"><span>    └── handler.go
+</span></span></code></pre></div><p>A estrutura deve acompanhar a complexidade existente.</p>
+<p>Não crie diretórios para uma complexidade que talvez nunca apareça.</p>
+<hr>
+<h2 id="organize-o-sistema-por-domínio">
+  Organize o sistema por domínio
+  <a class="heading-link" href="#organize-o-sistema-por-dom%c3%adnio">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Pedido fica com pedido,<br>
+Pagamento em seu lugar.<br>
+Tudo aquilo que é do módulo<br>
+Deve perto se encontrar.<br>
+Quem procura uma mudança<br>
+Não precisa peregrinar.</p>
+</blockquote>
+<p>Organizar por domínio significa agrupar o código de acordo com as capacidades de negócio.</p>
+<p>Uma aplicação de comércio eletrônico poderia ser organizada assim:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── customer/
+</span></span><span style="display:flex;"><span>├── catalog/
+</span></span><span style="display:flex;"><span>├── inventory/
+</span></span><span style="display:flex;"><span>├── order/
+</span></span><span style="display:flex;"><span>├── payment/
+</span></span><span style="display:flex;"><span>├── shipping/
+</span></span><span style="display:flex;"><span>└── platform/
+</span></span></code></pre></div><p>Cada módulo pode conter:</p>
+<ul>
+<li>entidades;</li>
+<li>regras de negócio;</li>
+<li>casos de uso;</li>
+<li>contratos;</li>
+<li>adaptadores;</li>
+<li>persistência;</li>
+<li>handlers;</li>
+<li>testes.</li>
+</ul>
+<p>Essa estrutura segue uma ideia próxima da <strong>Screaming Architecture</strong>: ao observar os diretórios do projeto, deve ser possível entender o que o sistema faz.</p>
+<p>Uma estrutura como:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── controller/
+</span></span><span style="display:flex;"><span>├── entity/
+</span></span><span style="display:flex;"><span>├── repository/
+</span></span><span style="display:flex;"><span>├── service/
+</span></span><span style="display:flex;"><span>└── util/
+</span></span></code></pre></div><p>informa quais padrões técnicos foram utilizados.</p>
+<p>Uma estrutura como:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── billing/
+</span></span><span style="display:flex;"><span>├── identity/
+</span></span><span style="display:flex;"><span>├── order/
+</span></span><span style="display:flex;"><span>└── inventory/
+</span></span></code></pre></div><p>informa qual problema o sistema resolve.</p>
+<hr>
+<h2 id="mantenha-o-domínio-independente-da-infraestrutura">
+  Mantenha o domínio independente da infraestrutura
+  <a class="heading-link" href="#mantenha-o-dom%c3%adnio-independente-da-infraestrutura">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>O pedido conhece a regra,<br>
+Seu estado e condição.<br>
+Mas não sabe se é salvo<br>
+Em arquivo ou conexão.<br>
+Banco, fila e protocolo<br>
+Vivem noutra direção.</p>
+</blockquote>
+<p>As regras centrais do sistema não devem depender diretamente de HTTP, PostgreSQL, Kafka ou qualquer outro mecanismo de infraestrutura.</p>
+<p>Considere a seguinte entidade:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> order
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;errors&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">var</span> ErrInvalidAmount = errors.New(
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;order amount must be positive&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> Status <span style="">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>	StatusPending   Status = <span style="font-style:italic">&#34;pending&#34;</span>
+</span></span><span style="display:flex;"><span>	StatusConfirmed Status = <span style="font-style:italic">&#34;confirmed&#34;</span>
+</span></span><span style="display:flex;"><span>	StatusCanceled  Status = <span style="font-style:italic">&#34;canceled&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> Order <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	ID         <span style="">string</span>
+</span></span><span style="display:flex;"><span>	CustomerID <span style="">string</span>
+</span></span><span style="display:flex;"><span>	Amount     <span style="">int64</span>
+</span></span><span style="display:flex;"><span>	Status     Status
+</span></span><span style="display:flex;"><span>	CreatedAt  time.Time
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> New(
+</span></span><span style="display:flex;"><span>	id <span style="">string</span>,
+</span></span><span style="display:flex;"><span>	customerID <span style="">string</span>,
+</span></span><span style="display:flex;"><span>	amount <span style="">int64</span>,
+</span></span><span style="display:flex;"><span>	now time.Time,
+</span></span><span style="display:flex;"><span>) (*Order, <span style="">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> amount &lt;= 0 {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>, ErrInvalidAmount
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> &amp;Order{
+</span></span><span style="display:flex;"><span>		ID:         id,
+</span></span><span style="display:flex;"><span>		CustomerID: customerID,
+</span></span><span style="display:flex;"><span>		Amount:     amount,
+</span></span><span style="display:flex;"><span>		Status:     StatusPending,
+</span></span><span style="display:flex;"><span>		CreatedAt:  now,
+</span></span><span style="display:flex;"><span>	}, <span style="font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A entidade concentra:</p>
+<ul>
+<li>seus dados;</li>
+<li>suas invariantes;</li>
+<li>regras de criação;</li>
+<li>estados possíveis;</li>
+<li>comportamentos do domínio.</li>
+</ul>
+<p>Ela não precisa conhecer:</p>
+<ul>
+<li>JSON;</li>
+<li>banco de dados;</li>
+<li>frameworks web;</li>
+<li>bibliotecas de mensageria;</li>
+<li>variáveis de ambiente;</li>
+<li>APIs externas.</li>
+</ul>
+<p>Quanto menos o domínio conhece sobre infraestrutura, mais simples se torna:</p>
+<ul>
+<li>testá-lo;</li>
+<li>reutilizá-lo;</li>
+<li>alterá-lo;</li>
+<li>substituir tecnologias ao redor dele.</li>
+</ul>
+<hr>
+<h2 id="defina-interfaces-no-lado-consumidor">
+  Defina interfaces no lado consumidor
+  <a class="heading-link" href="#defina-interfaces-no-lado-consumidor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Contrato bom é pequeno,<br>
+Tem propósito e direção.<br>
+Nasce perto de quem usa,<br>
+Não de quem faz implementação.<br>
+Quanto menor sua promessa,<br>
+Mais simples a substituição.</p>
+</blockquote>
+<p>Em Go, uma interface normalmente deve ser declarada pelo pacote que a consome.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> order
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> Repository <span style="font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	Save(ctx context.Context, order *Order) <span style="">error</span>
+</span></span><span style="display:flex;"><span>	FindByID(ctx context.Context, id <span style="">string</span>) (*Order, <span style="">error</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> EventPublisher <span style="font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	PublishOrderCreated(
+</span></span><span style="display:flex;"><span>		ctx context.Context,
+</span></span><span style="display:flex;"><span>		order *Order,
+</span></span><span style="display:flex;"><span>	) <span style="">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> IDGenerator <span style="font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	NewID() <span style="">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> Clock <span style="font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	Now() time.Time
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>O caso de uso depende dessas interfaces:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> Service <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	repository Repository
+</span></span><span style="display:flex;"><span>	publisher  EventPublisher
+</span></span><span style="display:flex;"><span>	ids        IDGenerator
+</span></span><span style="display:flex;"><span>	clock      Clock
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> NewService(
+</span></span><span style="display:flex;"><span>	repository Repository,
+</span></span><span style="display:flex;"><span>	publisher EventPublisher,
+</span></span><span style="display:flex;"><span>	ids IDGenerator,
+</span></span><span style="display:flex;"><span>	clock Clock,
+</span></span><span style="display:flex;"><span>) *Service {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> &amp;Service{
+</span></span><span style="display:flex;"><span>		repository: repository,
+</span></span><span style="display:flex;"><span>		publisher:  publisher,
+</span></span><span style="display:flex;"><span>		ids:        ids,
+</span></span><span style="display:flex;"><span>		clock:      clock,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As implementações concretas podem utilizar PostgreSQL, Kafka, UUID ou o relógio do sistema.</p>
+<p>Em testes, essas dependências podem ser substituídas por implementações controladas.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Repository
+</span></span><span style="display:flex;"><span>├── PostgreSQL
+</span></span><span style="display:flex;"><span>├── memória
+</span></span><span style="display:flex;"><span>└── stub de teste
+</span></span></code></pre></div><p>Isso não significa criar interfaces para todas as estruturas.</p>
+<p>Interfaces são especialmente úteis nas fronteiras com:</p>
+<ul>
+<li>banco de dados;</li>
+<li>mensageria;</li>
+<li>serviços externos;</li>
+<li>cache;</li>
+<li>armazenamento;</li>
+<li>geração de identificadores;</li>
+<li>relógio;</li>
+<li>sistemas de pagamento.</li>
+</ul>
+<p>Uma interface deve representar uma necessidade concreta do consumidor.</p>
+<p>Não deve existir apenas para satisfazer uma regra arquitetural.</p>
+<hr>
+<h2 id="modele-casos-de-uso-explícitos">
+  Modele casos de uso explícitos
+  <a class="heading-link" href="#modele-casos-de-uso-expl%c3%adcitos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Cada ação tem seu nome,<br>
+Seu comando e intenção.<br>
+Criar pedido é uma coisa,<br>
+Cancelar tem outra razão.<br>
+Separar bem cada fluxo<br>
+Simplifica a manutenção.</p>
+</blockquote>
+<p>Em sistemas pequenos, um único serviço pode ser suficiente.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> OrderService <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	repository Repository
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Com o crescimento, esse serviço pode concentrar operações demais:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Create
+</span></span><span style="display:flex;"><span>Update
+</span></span><span style="display:flex;"><span>Confirm
+</span></span><span style="display:flex;"><span>Cancel
+</span></span><span style="display:flex;"><span>Refund
+</span></span><span style="display:flex;"><span>Retry
+</span></span><span style="display:flex;"><span>Approve
+</span></span><span style="display:flex;"><span>Reject
+</span></span><span style="display:flex;"><span>Archive
+</span></span></code></pre></div><p>Nesse momento, separar os casos de uso pode tornar a aplicação mais compreensível.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/
+</span></span><span style="display:flex;"><span>├── create.go
+</span></span><span style="display:flex;"><span>├── cancel.go
+</span></span><span style="display:flex;"><span>├── confirm.go
+</span></span><span style="display:flex;"><span>├── find.go
+</span></span><span style="display:flex;"><span>└── repository.go
+</span></span></code></pre></div><p>Um caso de uso pode ser modelado assim:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> CreateCommand <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	CustomerID <span style="">string</span>
+</span></span><span style="display:flex;"><span>	Amount     <span style="">int64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> CreateHandler <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	repository Repository
+</span></span><span style="display:flex;"><span>	ids        IDGenerator
+</span></span><span style="display:flex;"><span>	clock      Clock
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> NewCreateHandler(
+</span></span><span style="display:flex;"><span>	repository Repository,
+</span></span><span style="display:flex;"><span>	ids IDGenerator,
+</span></span><span style="display:flex;"><span>	clock Clock,
+</span></span><span style="display:flex;"><span>) *CreateHandler {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> &amp;CreateHandler{
+</span></span><span style="display:flex;"><span>		repository: repository,
+</span></span><span style="display:flex;"><span>		ids:        ids,
+</span></span><span style="display:flex;"><span>		clock:      clock,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> (h *CreateHandler) Handle(
+</span></span><span style="display:flex;"><span>	ctx context.Context,
+</span></span><span style="display:flex;"><span>	cmd CreateCommand,
+</span></span><span style="display:flex;"><span>) (*Order, <span style="">error</span>) {
+</span></span><span style="display:flex;"><span>	created, err := New(
+</span></span><span style="display:flex;"><span>		h.ids.NewID(),
+</span></span><span style="display:flex;"><span>		cmd.CustomerID,
+</span></span><span style="display:flex;"><span>		cmd.Amount,
+</span></span><span style="display:flex;"><span>		h.clock.Now(),
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>, err
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err := h.repository.Save(ctx, created); err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>, fmt.Errorf(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;save order: %w&#34;</span>,
+</span></span><span style="display:flex;"><span>			err,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> created, <span style="font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Esse formato torna explícitos:</p>
+<ul>
+<li>a entrada;</li>
+<li>as dependências;</li>
+<li>o fluxo;</li>
+<li>o resultado;</li>
+<li>os erros possíveis.</li>
+</ul>
+<p>Além disso, evita o surgimento de serviços gigantes, difíceis de entender e testar.</p>
+<hr>
+<h2 id="trate-http-como-um-adaptador">
+  Trate HTTP como um adaptador
+  <a class="heading-link" href="#trate-http-como-um-adaptador">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>HTTP traz a mensagem,<br>
+Faz a devida tradução.<br>
+Mas não deve decidir<br>
+A política da operação.<br>
+Regra mora no domínio;<br>
+Protocolo, na adaptação.</p>
+</blockquote>
+<p>O handler HTTP deve converter uma requisição em uma chamada para a aplicação.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> Handler <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	createOrder *order.CreateHandler
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> createOrderRequest <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	CustomerID <span style="">string</span> <span style="font-style:italic">`json:&#34;customerId&#34;`</span>
+</span></span><span style="display:flex;"><span>	Amount     <span style="">int64</span>  <span style="font-style:italic">`json:&#34;amount&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> (h *Handler) Create(
+</span></span><span style="display:flex;"><span>	w http.ResponseWriter,
+</span></span><span style="display:flex;"><span>	r *http.Request,
+</span></span><span style="display:flex;"><span>) {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> request createOrderRequest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err := json.NewDecoder(r.Body).Decode(&amp;request); err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		writeError(
+</span></span><span style="display:flex;"><span>			w,
+</span></span><span style="display:flex;"><span>			http.StatusBadRequest,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;invalid request body&#34;</span>,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	created, err := h.createOrder.Handle(
+</span></span><span style="display:flex;"><span>		r.Context(),
+</span></span><span style="display:flex;"><span>		order.CreateCommand{
+</span></span><span style="display:flex;"><span>			CustomerID: request.CustomerID,
+</span></span><span style="display:flex;"><span>			Amount:     request.Amount,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		handleOrderError(w, err)
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	writeJSON(w, http.StatusCreated, created)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>O handler deve ser responsável por:</p>
+<ul>
+<li>leitura da requisição;</li>
+<li>validação estrutural;</li>
+<li>autenticação;</li>
+<li>autorização;</li>
+<li>conversão entre DTOs e comandos;</li>
+<li>tradução de erros;</li>
+<li>serialização da resposta.</li>
+</ul>
+<p>O handler não deve concentrar regras como:</p>
+<ul>
+<li>cálculo de preço;</li>
+<li>validação de estoque;</li>
+<li>transição de estado;</li>
+<li>políticas de cancelamento;</li>
+<li>processamento de pagamento.</li>
+</ul>
+<p>Essas decisões pertencem ao domínio ou aos casos de uso.</p>
+<hr>
+<h2 id="centralize-a-composição-das-dependências">
+  Centralize a composição das dependências
+  <a class="heading-link" href="#centralize-a-composi%c3%a7%c3%a3o-das-depend%c3%aancias">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Na raiz se monta o sistema,<br>
+Peça encontra conexão.<br>
+O contrato recebe o concreto,<br>
+Sem oculta resolução.<br>
+Dependência bem visível<br>
+Melhora a compreensão.</p>
+</blockquote>
+<p>A aplicação precisa de um lugar onde as dependências concretas são criadas e conectadas.</p>
+<p>Esse ponto é conhecido como <strong>composition root</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> New(config Config) (*Application, <span style="">error</span>) {
+</span></span><span style="display:flex;"><span>	db, err := database.Open(config.Database)
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>, fmt.Errorf(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;open database: %w&#34;</span>,
+</span></span><span style="display:flex;"><span>			err,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	orderRepository := orderpostgres.NewRepository(db)
+</span></span><span style="display:flex;"><span>	eventPublisher := kafka.NewPublisher(config.Kafka)
+</span></span><span style="display:flex;"><span>	clock := systemclock.New()
+</span></span><span style="display:flex;"><span>	idGenerator := uuidgenerator.New()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	createOrder := order.NewCreateHandler(
+</span></span><span style="display:flex;"><span>		orderRepository,
+</span></span><span style="display:flex;"><span>		idGenerator,
+</span></span><span style="display:flex;"><span>		clock,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	orderHandler := orderhttp.NewHandler(
+</span></span><span style="display:flex;"><span>		createOrder,
+</span></span><span style="display:flex;"><span>		eventPublisher,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	router := httpserver.NewRouter()
+</span></span><span style="display:flex;"><span>	orderhttp.RegisterRoutes(router, orderHandler)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> &amp;Application{
+</span></span><span style="display:flex;"><span>		server: httpserver.New(
+</span></span><span style="display:flex;"><span>			config.HTTP,
+</span></span><span style="display:flex;"><span>			router,
+</span></span><span style="display:flex;"><span>		),
+</span></span><span style="display:flex;"><span>		db: db,
+</span></span><span style="display:flex;"><span>	}, <span style="font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Essa composição explícita permite visualizar:</p>
+<ul>
+<li>quais implementações estão sendo utilizadas;</li>
+<li>quais componentes dependem de quais contratos;</li>
+<li>quais recursos precisam ser encerrados;</li>
+<li>quais dependências podem ser substituídas em testes.</li>
+</ul>
+<p>Evite esconder dependências por meio de:</p>
+<ul>
+<li>variáveis globais;</li>
+<li>funções <code>init</code>;</li>
+<li>service locators;</li>
+<li>singletons mutáveis;</li>
+<li>registradores globais;</li>
+<li>acesso direto a configurações em qualquer pacote.</li>
+</ul>
+<p>Em Go, construtores explícitos costumam ser suficientes para a maior parte dos projetos.</p>
+<hr>
+<h2 id="separe-a-infraestrutura-compartilhada">
+  Separe a infraestrutura compartilhada
+  <a class="heading-link" href="#separe-a-infraestrutura-compartilhada">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Plataforma faz a estrada,<br>
+Traz conexão e observação.<br>
+O domínio traz a regra,<br>
+A política e decisão.<br>
+Quando os dois ficam misturados,<br>
+Toda mudança vira tensão.</p>
+</blockquote>
+<p>Capacidades técnicas compartilhadas podem ficar em um pacote de plataforma.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/platform/
+</span></span><span style="display:flex;"><span>├── database/
+</span></span><span style="display:flex;"><span>├── httpserver/
+</span></span><span style="display:flex;"><span>├── messaging/
+</span></span><span style="display:flex;"><span>├── observability/
+</span></span><span style="display:flex;"><span>├── cache/
+</span></span><span style="display:flex;"><span>└── resilience/
+</span></span></code></pre></div><p>Esse diretório pode conter:</p>
+<ul>
+<li>configuração de banco de dados;</li>
+<li>criação de pool de conexões;</li>
+<li>servidor HTTP;</li>
+<li>middlewares;</li>
+<li>métricas;</li>
+<li>tracing;</li>
+<li>logging;</li>
+<li>produtores de eventos;</li>
+<li>consumidores;</li>
+<li>mecanismos de retry;</li>
+<li>circuit breakers.</li>
+</ul>
+<p>Entretanto, <code>platform</code> não deve se tornar um diretório genérico para código sem classificação.</p>
+<p>Evite transformá-lo em algo semelhante a:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/platform/
+</span></span><span style="display:flex;"><span>├── utils/
+</span></span><span style="display:flex;"><span>├── helpers/
+</span></span><span style="display:flex;"><span>├── commons/
+</span></span><span style="display:flex;"><span>└── miscellaneous/
+</span></span></code></pre></div><p>Pacotes com nomes genéricos normalmente escondem responsabilidades pouco definidas.</p>
+<p>A infraestrutura compartilhada deve fornecer capacidades técnicas, não regras de negócio.</p>
+<hr>
+<h2 id="projete-a-aplicação-para-ser-stateless">
+  Projete a aplicação para ser stateless
+  <a class="heading-link" href="#projete-a-aplica%c3%a7%c3%a3o-para-ser-stateless">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Processo nasce e termina,<br>
+Pode a instância desligar.<br>
+O estado que é importante<br>
+Nela não deve morar.<br>
+Para outra assumir o trabalho,<br>
+O dado precisa ficar.</p>
+</blockquote>
+<p>Aplicações preparadas para escalar horizontalmente devem evitar depender de estado local.</p>
+<p>Não armazene informações críticas em:</p>
+<ul>
+<li>variáveis globais;</li>
+<li>mapas em memória;</li>
+<li>arquivos locais;</li>
+<li>sessões no processo;</li>
+<li>goroutines;</li>
+<li>caches locais usados como fonte de verdade.</li>
+</ul>
+<p>Utilize componentes apropriados:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Necessidade</th>
+					<th>Componente possível</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Estado transacional</td>
+					<td>PostgreSQL</td>
+			</tr>
+			<tr>
+					<td>Cache e coordenação</td>
+					<td>Redis</td>
+			</tr>
+			<tr>
+					<td>Arquivos</td>
+					<td>Object storage</td>
+			</tr>
+			<tr>
+					<td>Eventos</td>
+					<td>Kafka ou NATS</td>
+			</tr>
+			<tr>
+					<td>Busca textual</td>
+					<td>OpenSearch</td>
+			</tr>
+			<tr>
+					<td>Métricas</td>
+					<td>Prometheus</td>
+			</tr>
+			<tr>
+					<td>Traces</td>
+					<td>OpenTelemetry</td>
+			</tr>
+	</tbody>
+</table>
+<p>A aplicação deve conseguir executar várias instâncias sem depender de qual delas processou a requisição anterior.</p>
+<p>Isso facilita:</p>
+<ul>
+<li>balanceamento de carga;</li>
+<li>reinício de containers;</li>
+<li>autoscaling;</li>
+<li>rolling updates;</li>
+<li>recuperação de falhas.</li>
+</ul>
+<hr>
+<h2 id="trate-idempotência-explicitamente">
+  Trate idempotência explicitamente
+  <a class="heading-link" href="#trate-idempot%c3%aancia-explicitamente">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>A mensagem pode voltar,<br>
+A chamada se repetir.<br>
+Quem não trata duplicata<br>
+Vê o efeito ressurgir.<br>
+Idempotência é o recurso<br>
+Que impede o erro de insistir.</p>
+</blockquote>
+<p>Em sistemas distribuídos, requisições e mensagens podem ser processadas mais de uma vez.</p>
+<p>Isso pode acontecer por:</p>
+<ul>
+<li>retry do cliente;</li>
+<li>timeout;</li>
+<li>falha de rede;</li>
+<li>reentrega do broker;</li>
+<li>reinício do consumidor;</li>
+<li>interrupção durante o processamento.</li>
+</ul>
+<p>Operações críticas devem possuir mecanismos de idempotência.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> IdempotencyRepository <span style="font-weight:bold">interface</span> {
+</span></span><span style="display:flex;"><span>	Reserve(
+</span></span><span style="display:flex;"><span>		ctx context.Context,
+</span></span><span style="display:flex;"><span>		key <span style="">string</span>,
+</span></span><span style="display:flex;"><span>	) (<span style="">bool</span>, <span style="">error</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	Complete(
+</span></span><span style="display:flex;"><span>		ctx context.Context,
+</span></span><span style="display:flex;"><span>		key <span style="">string</span>,
+</span></span><span style="display:flex;"><span>		result []<span style="">byte</span>,
+</span></span><span style="display:flex;"><span>	) <span style="">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Um fluxo possível é:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cliente envia Idempotency-Key
+</span></span><span style="display:flex;"><span>             │
+</span></span><span style="display:flex;"><span>             ▼
+</span></span><span style="display:flex;"><span> aplicação tenta reservar a chave
+</span></span><span style="display:flex;"><span>             │
+</span></span><span style="display:flex;"><span>       ┌─────┴─────┐
+</span></span><span style="display:flex;"><span>       │           │
+</span></span><span style="display:flex;"><span>      nova      existente
+</span></span><span style="display:flex;"><span>       │           │
+</span></span><span style="display:flex;"><span>       ▼           ▼
+</span></span><span style="display:flex;"><span> executa ação   retorna resultado anterior
+</span></span><span style="display:flex;"><span>       │
+</span></span><span style="display:flex;"><span>       ▼
+</span></span><span style="display:flex;"><span> persiste o resultado
+</span></span></code></pre></div><p>Esse mecanismo é especialmente importante em:</p>
+<ul>
+<li>pagamentos;</li>
+<li>criação de pedidos;</li>
+<li>reservas;</li>
+<li>transferências;</li>
+<li>processamento de eventos;</li>
+<li>integrações sujeitas a retry.</li>
+</ul>
+<hr>
+<h2 id="resolva-concorrência-no-armazenamento">
+  Resolva concorrência no armazenamento
+  <a class="heading-link" href="#resolva-concorr%c3%aancia-no-armazenamento">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Consultar antes de inserir<br>
+Pode parecer proteção.<br>
+Mas duas instâncias consultando<br>
+Chegam à mesma conclusão.<br>
+A verdade concorrente<br>
+Deve estar na persistência em ação.</p>
+</blockquote>
+<p>Considere este fluxo:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">if</span> !repository.Exists(email) {
+</span></span><span style="display:flex;"><span>	repository.Insert(email)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Duas instâncias podem executar a verificação simultaneamente e concluir que o registro não existe.</p>
+<p>Em seguida, ambas tentam criá-lo.</p>
+<p>Esse problema deve ser tratado com mecanismos fornecidos pelo armazenamento:</p>
+<ul>
+<li>constraints únicas;</li>
+<li>transações;</li>
+<li>locking otimista;</li>
+<li>operações atômicas;</li>
+<li>controle de versão;</li>
+<li><code>SELECT ... FOR UPDATE</code>;</li>
+<li>compare-and-swap.</li>
+</ul>
+<p>Por exemplo, uma constraint única no banco protege o sistema mesmo quando várias instâncias executam a operação simultaneamente.</p>
+<p>A aplicação ainda deve tratar adequadamente o erro de conflito retornado pela persistência.</p>
+<hr>
+<h2 id="use-processamento-assíncrono-com-responsabilidade">
+  Use processamento assíncrono com responsabilidade
+  <a class="heading-link" href="#use-processamento-ass%c3%adncrono-com-responsabilidade">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Nem toda tarefa precisa<br>
+Na chamada terminar.<br>
+Trabalho lento ou secundário<br>
+Pode a fila encaminhar.<br>
+Mas evento sem garantia<br>
+Faz o estado se quebrar.</p>
+</blockquote>
+<p>Algumas operações podem ser realizadas de forma assíncrona:</p>
+<ul>
+<li>envio de notificações;</li>
+<li>geração de relatórios;</li>
+<li>atualização de índices;</li>
+<li>integração com terceiros;</li>
+<li>processamento de imagens;</li>
+<li>propagação de eventos.</li>
+</ul>
+<p>Um fluxo comum é:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>API → banco → broker → worker
+</span></span></code></pre></div><p>Entretanto, existe um problema quando a operação é persistida no banco, mas a publicação do evento falha.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pedido salvo
+</span></span><span style="display:flex;"><span>     │
+</span></span><span style="display:flex;"><span>     ▼
+</span></span><span style="display:flex;"><span>falha ao publicar evento
+</span></span><span style="display:flex;"><span>     │
+</span></span><span style="display:flex;"><span>     ▼
+</span></span><span style="display:flex;"><span>estado persistido sem notificação
+</span></span></code></pre></div><p>Uma solução é o padrão <strong>Transactional Outbox</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌───────────────────────────┐
+</span></span><span style="display:flex;"><span>│ Transação no banco        │
+</span></span><span style="display:flex;"><span>│                           │
+</span></span><span style="display:flex;"><span>│ 1. salva a entidade       │
+</span></span><span style="display:flex;"><span>│ 2. registra o evento      │
+</span></span><span style="display:flex;"><span>└──────────────┬────────────┘
+</span></span><span style="display:flex;"><span>               │
+</span></span><span style="display:flex;"><span>               ▼
+</span></span><span style="display:flex;"><span>       publicador da outbox
+</span></span><span style="display:flex;"><span>               │
+</span></span><span style="display:flex;"><span>               ▼
+</span></span><span style="display:flex;"><span>             broker
+</span></span></code></pre></div><p>A entidade e o evento são persistidos na mesma transação.</p>
+<p>Depois, um processo separado publica os eventos registrados na tabela de outbox.</p>
+<p>Essa abordagem reduz o risco de inconsistência entre banco de dados e mensageria.</p>
+<hr>
+<h2 id="classifique-e-envolva-erros">
+  Classifique e envolva erros
+  <a class="heading-link" href="#classifique-e-envolva-erros">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Erro também tem contexto,<br>
+Tem origem e classificação.<br>
+Para o cliente vai o contrato,<br>
+Para o log, investigação.<br>
+Quem devolve qualquer detalhe<br>
+Pode expor a aplicação.</p>
+</blockquote>
+<p>Erros de domínio devem ser identificáveis.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">var</span> (
+</span></span><span style="display:flex;"><span>	ErrOrderNotFound = errors.New(
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;order not found&#34;</span>,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	ErrOrderCanceled = errors.New(
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;order already canceled&#34;</span>,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Ao propagar um erro, acrescente contexto usando <code>%w</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">return</span> fmt.Errorf(
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;find order %q: %w&#34;</span>,
+</span></span><span style="display:flex;"><span>	id,
+</span></span><span style="display:flex;"><span>	err,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Na borda HTTP, traduza os erros para respostas adequadas:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">switch</span> {
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">case</span> errors.Is(err, order.ErrOrderNotFound):
+</span></span><span style="display:flex;"><span>	writeError(
+</span></span><span style="display:flex;"><span>		w,
+</span></span><span style="display:flex;"><span>		http.StatusNotFound,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;order not found&#34;</span>,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">case</span> errors.Is(err, order.ErrOrderCanceled):
+</span></span><span style="display:flex;"><span>	writeError(
+</span></span><span style="display:flex;"><span>		w,
+</span></span><span style="display:flex;"><span>		http.StatusConflict,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;order already canceled&#34;</span>,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">default</span>:
+</span></span><span style="display:flex;"><span>	logger.ErrorContext(
+</span></span><span style="display:flex;"><span>		ctx,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;request failed&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;error&#34;</span>,
+</span></span><span style="display:flex;"><span>		err,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	writeError(
+</span></span><span style="display:flex;"><span>		w,
+</span></span><span style="display:flex;"><span>		http.StatusInternalServerError,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;internal error&#34;</span>,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>O cliente não deve receber detalhes internos, stack traces ou informações de infraestrutura.</p>
+<p>Esses dados pertencem aos logs e às ferramentas de observabilidade.</p>
+<hr>
+<h2 id="centralize-a-configuração">
+  Centralize a configuração
+  <a class="heading-link" href="#centralize-a-configura%c3%a7%c3%a3o">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Configuração espalhada<br>
+É difícil de rastrear.<br>
+Quando a falta só aparece<br>
+Após o tráfego chegar,<br>
+O sistema perde tempo<br>
+Tentando se recuperar.</p>
+</blockquote>
+<p>Evite acessar <code>os.Getenv</code> diretamente em vários pacotes.</p>
+<p>Prefira uma estrutura tipada:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> Config <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Environment   <span style="">string</span>
+</span></span><span style="display:flex;"><span>	HTTP          HTTPConfig
+</span></span><span style="display:flex;"><span>	Database      DatabaseConfig
+</span></span><span style="display:flex;"><span>	Observability ObservabilityConfig
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">type</span> HTTPConfig <span style="font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Address         <span style="">string</span>
+</span></span><span style="display:flex;"><span>	ReadTimeout     time.Duration
+</span></span><span style="display:flex;"><span>	WriteTimeout    time.Duration
+</span></span><span style="display:flex;"><span>	ShutdownTimeout time.Duration
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Carregue e valide a configuração durante a inicialização:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> LoadConfig() (Config, <span style="">error</span>) {
+</span></span><span style="display:flex;"><span>	cfg := Config{
+</span></span><span style="display:flex;"><span>		Environment: os.Getenv(<span style="font-style:italic">&#34;APP_ENV&#34;</span>),
+</span></span><span style="display:flex;"><span>		HTTP: HTTPConfig{
+</span></span><span style="display:flex;"><span>			Address: <span style="font-style:italic">&#34;:8080&#34;</span>,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> cfg.Environment == <span style="font-style:italic">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> Config{}, errors.New(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;APP_ENV is required&#34;</span>,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> cfg, <span style="font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A aplicação deve falhar cedo quando uma configuração obrigatória estiver ausente.</p>
+<p>Esse comportamento é preferível a descobrir a falha somente durante o processamento de uma requisição.</p>
+<hr>
+<h2 id="implemente-graceful-shutdown">
+  Implemente graceful shutdown
+  <a class="heading-link" href="#implemente-graceful-shutdown">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Quando chega o encerramento,<br>
+Não se deve abandonar<br>
+Requisição pela metade,<br>
+Nem mensagem sem tratar.<br>
+Encerrar com segurança<br>
+Também faz parte de escalar.</p>
+</blockquote>
+<p>Em ambientes com containers e orquestradores, a aplicação recebe sinais de encerramento.</p>
+<p>Ela deve responder a esses sinais de forma controlada.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> (a *Application) Run(
+</span></span><span style="display:flex;"><span>	ctx context.Context,
+</span></span><span style="display:flex;"><span>) <span style="">error</span> {
+</span></span><span style="display:flex;"><span>	serverErrors := make(<span style="font-weight:bold">chan</span> <span style="">error</span>, 1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">go</span> <span style="font-weight:bold">func</span>() {
+</span></span><span style="display:flex;"><span>		serverErrors &lt;- a.server.ListenAndServe()
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">select</span> {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">case</span> err := &lt;-serverErrors:
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> err
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">case</span> &lt;-ctx.Done():
+</span></span><span style="display:flex;"><span>		shutdownCtx, cancel := context.WithTimeout(
+</span></span><span style="display:flex;"><span>			context.Background(),
+</span></span><span style="display:flex;"><span>			15*time.Second,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">defer</span> cancel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">return</span> a.server.Shutdown(shutdownCtx)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Durante o graceful shutdown, a aplicação deve:</p>
+<ol>
+<li>parar de aceitar novas requisições;</li>
+<li>concluir requisições em andamento;</li>
+<li>cancelar tarefas;</li>
+<li>encerrar consumidores;</li>
+<li>fechar conexões;</li>
+<li>descarregar buffers;</li>
+<li>finalizar dentro de um prazo.</li>
+</ol>
+<p>Toda goroutine de longa duração deve possuir alguma estratégia de cancelamento.</p>
+<p>Uma goroutine sem controle de ciclo de vida pode causar:</p>
+<ul>
+<li>vazamento de recursos;</li>
+<li>deadlocks;</li>
+<li>processamento após o encerramento;</li>
+<li>perda de mensagens;</li>
+<li>dificuldade em testes.</li>
+</ul>
+<hr>
+<h2 id="inclua-observabilidade-desde-o-início">
+  Inclua observabilidade desde o início
+  <a class="heading-link" href="#inclua-observabilidade-desde-o-in%c3%adcio">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Sistema sem observação<br>
+É viagem no escuro.<br>
+Quando a falha se apresenta,<br>
+O diagnóstico é inseguro.<br>
+Log, métrica e rastreamento<br>
+Fazem o caminho mais seguro.</p>
+</blockquote>
+<p>Uma aplicação deve fornecer sinais suficientes para entender seu comportamento em produção.</p>
+<p>O conjunto mínimo inclui:</p>
+<ul>
+<li>logs estruturados;</li>
+<li>métricas;</li>
+<li>traces distribuídos;</li>
+<li>correlation ID;</li>
+<li>health check;</li>
+<li>readiness check.</li>
+</ul>
+<p>Um log estruturado pode ser escrito assim:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>logger.InfoContext(
+</span></span><span style="display:flex;"><span>	ctx,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;order created&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;order_id&#34;</span>,
+</span></span><span style="display:flex;"><span>	created.ID,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;customer_id&#34;</span>,
+</span></span><span style="display:flex;"><span>	created.CustomerID,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;amount&#34;</span>,
+</span></span><span style="display:flex;"><span>	created.Amount,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Esse formato é mais útil que concatenar valores em uma mensagem:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>log.Printf(
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;Pedido %s criado para cliente %s&#34;</span>,
+</span></span><span style="display:flex;"><span>	id,
+</span></span><span style="display:flex;"><span>	customerID,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>A estrutura permite:</p>
+<ul>
+<li>filtrar por atributos;</li>
+<li>correlacionar requisições;</li>
+<li>construir dashboards;</li>
+<li>investigar incidentes;</li>
+<li>criar alertas.</li>
+</ul>
+<p>Também é necessário evitar métricas com alta cardinalidade.</p>
+<p>Não utilize identificadores únicos como labels:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>order_id
+</span></span><span style="display:flex;"><span>customer_id
+</span></span><span style="display:flex;"><span>email
+</span></span><span style="display:flex;"><span>request_id
+</span></span><span style="display:flex;"><span>URL completa
+</span></span></code></pre></div><p>Labels devem possuir um conjunto relativamente limitado de valores.</p>
+<hr>
+<h2 id="estruture-os-testes-por-finalidade">
+  Estruture os testes por finalidade
+  <a class="heading-link" href="#estruture-os-testes-por-finalidade">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Teste rápido orienta,<br>
+Teste integrado dá garantia.<br>
+Cada tipo tem seu espaço,<br>
+Seu custo e serventia.<br>
+Não dependa só do topo<br>
+Para provar a engenharia.</p>
+</blockquote>
+<p>Uma estrutura escalável deve permitir testar regras de negócio sem iniciar toda a aplicação.</p>
+<h3 id="testes-unitários">
+  Testes unitários
+  <a class="heading-link" href="#testes-unit%c3%a1rios">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> TestCreateOrder(t *testing.T) {
+</span></span><span style="display:flex;"><span>	repository := &amp;repositoryStub{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	clock := fixedClock{
+</span></span><span style="display:flex;"><span>		value: time.Date(
+</span></span><span style="display:flex;"><span>			2026,
+</span></span><span style="display:flex;"><span>			8,
+</span></span><span style="display:flex;"><span>			5,
+</span></span><span style="display:flex;"><span>			12,
+</span></span><span style="display:flex;"><span>			0,
+</span></span><span style="display:flex;"><span>			0,
+</span></span><span style="display:flex;"><span>			0,
+</span></span><span style="display:flex;"><span>			time.UTC,
+</span></span><span style="display:flex;"><span>		),
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	ids := fixedIDGenerator{
+</span></span><span style="display:flex;"><span>		value: <span style="font-style:italic">&#34;order-123&#34;</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	handler := NewCreateHandler(
+</span></span><span style="display:flex;"><span>		repository,
+</span></span><span style="display:flex;"><span>		ids,
+</span></span><span style="display:flex;"><span>		clock,
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	created, err := handler.Handle(
+</span></span><span style="display:flex;"><span>		context.Background(),
+</span></span><span style="display:flex;"><span>		CreateCommand{
+</span></span><span style="display:flex;"><span>			CustomerID: <span style="font-style:italic">&#34;customer-1&#34;</span>,
+</span></span><span style="display:flex;"><span>			Amount:     10_000,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		t.Fatalf(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;unexpected error: %v&#34;</span>,
+</span></span><span style="display:flex;"><span>			err,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> created.ID != <span style="font-style:italic">&#34;order-123&#34;</span> {
+</span></span><span style="display:flex;"><span>		t.Errorf(
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;expected order-123, got %s&#34;</span>,
+</span></span><span style="display:flex;"><span>			created.ID,
+</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="testes-de-integração">
+  Testes de integração
+  <a class="heading-link" href="#testes-de-integra%c3%a7%c3%a3o">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Validam implementações reais de infraestrutura:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/postgres/
+</span></span><span style="display:flex;"><span>├── repository.go
+</span></span><span style="display:flex;"><span>└── repository_test.go
+</span></span></code></pre></div><p>Esses testes podem verificar:</p>
+<ul>
+<li>consultas SQL;</li>
+<li>constraints;</li>
+<li>transações;</li>
+<li>serialização;</li>
+<li>migrations;</li>
+<li>integração com brokers;</li>
+<li>comportamento de clientes externos.</li>
+</ul>
+<h3 id="testes-de-contrato">
+  Testes de contrato
+  <a class="heading-link" href="#testes-de-contrato">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Validam se consumidores e provedores respeitam contratos esperados.</p>
+<p>São especialmente úteis em:</p>
+<ul>
+<li>APIs HTTP;</li>
+<li>eventos;</li>
+<li>protobuf;</li>
+<li>OpenAPI;</li>
+<li>integrações entre serviços.</li>
+</ul>
+<h3 id="testes-ponta-a-ponta">
+  Testes ponta a ponta
+  <a class="heading-link" href="#testes-ponta-a-ponta">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Validam os fluxos críticos do sistema completo.</p>
+<p>Devem ser usados com moderação, pois costumam ser:</p>
+<ul>
+<li>lentos;</li>
+<li>frágeis;</li>
+<li>mais difíceis de diagnosticar;</li>
+<li>dependentes de infraestrutura.</li>
+</ul>
+<p>Uma estratégia equilibrada costuma possuir:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>muitos testes unitários
+</span></span><span style="display:flex;"><span>alguns testes de integração
+</span></span><span style="display:flex;"><span>poucos testes ponta a ponta
+</span></span></code></pre></div><hr>
+<h2 id="não-extraia-microserviços-cedo-demais">
+  Não extraia microserviços cedo demais
+  <a class="heading-link" href="#n%c3%a3o-extraia-microservi%c3%a7os-cedo-demais">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Antes da fronteira em rede,<br>
+Faça a fronteira no código.<br>
+Se o domínio está isolado,<br>
+Seu futuro fica lógico.<br>
+Distribuir sem disciplina<br>
+Multiplica o diagnóstico.</p>
+</blockquote>
+<p>Microserviços adicionam complexidades que não aparecem nos diagramas mais simples:</p>
+<ul>
+<li>comunicação remota;</li>
+<li>autenticação entre serviços;</li>
+<li>retries;</li>
+<li>consistência eventual;</li>
+<li>descoberta de serviços;</li>
+<li>circuit breakers;</li>
+<li>tracing distribuído;</li>
+<li>versionamento de contratos;</li>
+<li>observabilidade;</li>
+<li>implantação;</li>
+<li>filas;</li>
+<li>coordenação operacional.</li>
+</ul>
+<p>Um módulo deve ser extraído quando houver uma razão concreta:</p>
+<ul>
+<li>necessidade de escala independente;</li>
+<li>ownership por uma equipe diferente;</li>
+<li>ciclo de implantação próprio;</li>
+<li>requisitos específicos de disponibilidade;</li>
+<li>isolamento de falhas;</li>
+<li>tecnologia especializada;</li>
+<li>armazenamento independente;</li>
+<li>fronteira de domínio madura.</li>
+</ul>
+<p>Um módulo interno:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/billing/
+</span></span></code></pre></div><p>pode futuramente se tornar:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>services/billing/
+</span></span></code></pre></div><p>Essa extração será mais segura se o módulo já possuir:</p>
+<ul>
+<li>contratos explícitos;</li>
+<li>domínio isolado;</li>
+<li>dependências controladas;</li>
+<li>persistência delimitada;</li>
+<li>testes próprios;</li>
+<li>comunicação bem definida.</li>
+</ul>
+<p>A fronteira lógica deve existir antes da fronteira de rede.</p>
+<hr>
+<h2 id="evite-arquitetura-cerimonial">
+  Evite arquitetura cerimonial
+  <a class="heading-link" href="#evite-arquitetura-cerimonial">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Se precisa de oito tipos<br>
+Para um dado atravessar,<br>
+Talvez a arquitetura<br>
+Tenha vindo atrapalhar.<br>
+Abstração é ferramenta,<br>
+Não troféu para mostrar.</p>
+</blockquote>
+<p>Arquitetura excessivamente cerimonial pode produzir estruturas como:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CreateOrderController
+</span></span><span style="display:flex;"><span>CreateOrderUseCase
+</span></span><span style="display:flex;"><span>CreateOrderInteractor
+</span></span><span style="display:flex;"><span>CreateOrderInputPort
+</span></span><span style="display:flex;"><span>CreateOrderOutputPort
+</span></span><span style="display:flex;"><span>CreateOrderPresenter
+</span></span><span style="display:flex;"><span>CreateOrderGateway
+</span></span><span style="display:flex;"><span>CreateOrderRepositoryAdapter
+</span></span></code></pre></div><p>Para casos simples, isso aumenta:</p>
+<ul>
+<li>indireção;</li>
+<li>quantidade de arquivos;</li>
+<li>tempo de navegação;</li>
+<li>carga cognitiva;</li>
+<li>dificuldade de manutenção.</li>
+</ul>
+<p>Uma alternativa mais idiomática em Go pode ser:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>order/
+</span></span><span style="display:flex;"><span>├── create.go
+</span></span><span style="display:flex;"><span>├── repository.go
+</span></span><span style="display:flex;"><span>└── http.go
+</span></span></code></pre></div><p>Go favorece:</p>
+<ul>
+<li>composição;</li>
+<li>interfaces pequenas;</li>
+<li>pacotes coesos;</li>
+<li>dependências explícitas;</li>
+<li>nomes diretos;</li>
+<li>pouca indireção.</li>
+</ul>
+<p>Camadas devem ser adicionadas quando solucionam um problema real.</p>
+<p>Não devem existir apenas porque um diagrama arquitetural diz que deveriam existir.</p>
+<hr>
+<h2 id="evolução-progressiva-da-estrutura">
+  Evolução progressiva da estrutura
+  <a class="heading-link" href="#evolu%c3%a7%c3%a3o-progressiva-da-estrutura">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Projeto cresce por etapas,<br>
+Não por grande revolução.<br>
+Cada pasta deve nascer<br>
+Para resolver uma tensão.<br>
+Estrutura sustentável<br>
+Acompanha a aplicação.</p>
+</blockquote>
+<h3 id="projeto-pequeno">
+  Projeto pequeno
+  <a class="heading-link" href="#projeto-pequeno">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cmd/
+</span></span><span style="display:flex;"><span>└── api/
+</span></span><span style="display:flex;"><span>    └── main.go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── order/
+</span></span><span style="display:flex;"><span>├── customer/
+</span></span><span style="display:flex;"><span>└── platform/
+</span></span></code></pre></div><p>Nesse estágio, pacotes planos costumam ser suficientes.</p>
+<h3 id="projeto-intermediário">
+  Projeto intermediário
+  <a class="heading-link" href="#projeto-intermedi%c3%a1rio">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/
+</span></span><span style="display:flex;"><span>├── domain/
+</span></span><span style="display:flex;"><span>├── application/
+</span></span><span style="display:flex;"><span>├── http/
+</span></span><span style="display:flex;"><span>└── postgres/
+</span></span></code></pre></div><p>A separação aparece conforme aumentam:</p>
+<ul>
+<li>regras;</li>
+<li>dependências;</li>
+<li>casos de uso;</li>
+<li>adaptadores;</li>
+<li>arquivos;</li>
+<li>integrantes da equipe.</li>
+</ul>
+<h3 id="projeto-grande">
+  Projeto grande
+  <a class="heading-link" href="#projeto-grande">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── order/
+</span></span><span style="display:flex;"><span>├── billing/
+</span></span><span style="display:flex;"><span>├── inventory/
+</span></span><span style="display:flex;"><span>├── identity/
+</span></span><span style="display:flex;"><span>└── platform/
+</span></span></code></pre></div><p>Cada módulo pode possuir internamente:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>billing/
+</span></span><span style="display:flex;"><span>├── domain/
+</span></span><span style="display:flex;"><span>├── application/
+</span></span><span style="display:flex;"><span>├── http/
+</span></span><span style="display:flex;"><span>├── events/
+</span></span><span style="display:flex;"><span>├── postgres/
+</span></span><span style="display:flex;"><span>└── tests/
+</span></span></code></pre></div><p>O importante não é copiar uma estrutura fixa.</p>
+<p>O importante é preservar:</p>
+<ul>
+<li>coesão;</li>
+<li>limites;</li>
+<li>direção das dependências;</li>
+<li>clareza;</li>
+<li>testabilidade.</li>
+</ul>
+<hr>
+<h2 id="estrutura-recomendada">
+  Estrutura recomendada
+  <a class="heading-link" href="#estrutura-recomendada">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p><code>cmd</code> conduz a entrada,<br>
+<code>internal</code> dá proteção.<br>
+O domínio guarda a regra,<br>
+Plataforma, a conexão.<br>
+Com contrato bem pequeno,<br>
+Cresce firme a aplicação.</p>
+</blockquote>
+<p>Uma estrutura equilibrada pode ser:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>my-project/
+</span></span><span style="display:flex;"><span>├── cmd/
+</span></span><span style="display:flex;"><span>│   ├── api/
+</span></span><span style="display:flex;"><span>│   │   └── main.go
+</span></span><span style="display:flex;"><span>│   ├── worker/
+</span></span><span style="display:flex;"><span>│   │   └── main.go
+</span></span><span style="display:flex;"><span>│   └── migrate/
+</span></span><span style="display:flex;"><span>│       └── main.go
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── internal/
+</span></span><span style="display:flex;"><span>│   ├── app/
+</span></span><span style="display:flex;"><span>│   │   ├── application.go
+</span></span><span style="display:flex;"><span>│   │   ├── config.go
+</span></span><span style="display:flex;"><span>│   │   └── dependencies.go
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   ├── order/
+</span></span><span style="display:flex;"><span>│   │   ├── domain/
+</span></span><span style="display:flex;"><span>│   │   ├── application/
+</span></span><span style="display:flex;"><span>│   │   ├── http/
+</span></span><span style="display:flex;"><span>│   │   └── postgres/
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   ├── customer/
+</span></span><span style="display:flex;"><span>│   ├── billing/
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   └── platform/
+</span></span><span style="display:flex;"><span>│       ├── database/
+</span></span><span style="display:flex;"><span>│       ├── messaging/
+</span></span><span style="display:flex;"><span>│       ├── observability/
+</span></span><span style="display:flex;"><span>│       └── httpserver/
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── migrations/
+</span></span><span style="display:flex;"><span>├── api/
+</span></span><span style="display:flex;"><span>│   └── openapi.yaml
+</span></span><span style="display:flex;"><span>├── deployments/
+</span></span><span style="display:flex;"><span>├── scripts/
+</span></span><span style="display:flex;"><span>├── go.mod
+</span></span><span style="display:flex;"><span>├── go.sum
+</span></span><span style="display:flex;"><span>└── Makefile
+</span></span></code></pre></div><p>Essa estrutura combina:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>monólito modular
+</span></span><span style="display:flex;"><span>+ pacotes orientados ao domínio
+</span></span><span style="display:flex;"><span>+ código privado em internal
+</span></span><span style="display:flex;"><span>+ executáveis em cmd
+</span></span><span style="display:flex;"><span>+ composição explícita
+</span></span><span style="display:flex;"><span>+ interfaces pequenas
+</span></span><span style="display:flex;"><span>+ aplicação stateless
+</span></span><span style="display:flex;"><span>+ observabilidade
+</span></span><span style="display:flex;"><span>+ testes nas fronteiras
+</span></span></code></pre></div><hr>
+<h2 id="perguntas-para-avaliar-a-arquitetura">
+  Perguntas para avaliar a arquitetura
+  <a class="heading-link" href="#perguntas-para-avaliar-a-arquitetura">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Uma boa estrutura deve permitir responder rapidamente:</p>
+<ol>
+<li>Onde está a regra de negócio?</li>
+<li>Qual módulo é responsável por esta funcionalidade?</li>
+<li>Quem depende de quem?</li>
+<li>Como substituo uma integração externa?</li>
+<li>Como testo esta regra sem iniciar toda a aplicação?</li>
+<li>Como o sistema encerra suas operações?</li>
+<li>Como identifico o que aconteceu em produção?</li>
+<li>Como duplicidades são tratadas?</li>
+<li>Como conflitos concorrentes são evitados?</li>
+<li>Como este módulo poderia ser extraído no futuro?</li>
+</ol>
+<p>Se cada resposta exige percorrer dezenas de diretórios, a estrutura provavelmente não está comunicando bem suas responsabilidades.</p>
+<hr>
+<h2 id="conclusão">
+  Conclusão
+  <a class="heading-link" href="#conclus%c3%a3o">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Projeto Go bem estruturado<br>
+Não depende de invenção.<br>
+Depende de boas fronteiras,<br>
+Clareza e composição.<br>
+Do domínio no seu centro<br>
+E explícita dependência em ação.</p>
+</blockquote>
+<p>Não existe uma única estrutura correta para todos os projetos Go.</p>
+<p>Uma aplicação pequena não precisa da mesma organização de um sistema com dezenas de módulos, múltiplos executáveis e integrações distribuídas.</p>
+<p>Por isso, a estrutura deve evoluir conforme surgem necessidades reais.</p>
+<p>Comece com um monólito modular.</p>
+<p>Organize o código pelas capacidades do negócio.</p>
+<p>Mantenha o domínio independente da infraestrutura.</p>
+<p>Use interfaces pequenas no lado consumidor.</p>
+<p>Centralize a composição das dependências.</p>
+<p>Projete a aplicação para ser stateless.</p>
+<p>Adicione idempotência, graceful shutdown e observabilidade desde cedo.</p>
+<p>Extraia microserviços somente quando houver razões técnicas e organizacionais concretas.</p>
+<blockquote>
+<p><strong>Cordel técnico</strong></p>
+<p>Pois escalar não é somente<br>
+Mais máquina para rodar.<br>
+É permitir que código e equipe<br>
+Possam juntos avançar.<br>
+Sem transformar cada mudança<br>
+Num motivo para tudo quebrar.</p>
+</blockquote>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "texticulos-1" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Francisco Oliveira 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Textículos</title>
-    <link>https://delley.github.io/posts/</link>
-    <description>Recent content in Posts on Textículos</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://delley.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</title>
-      <link>https://delley.github.io/posts/encapsulamento-internal/</link>
-      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/encapsulamento-internal/</guid>
-      <description>Cordel técnico&#xA;No sertão da arquitetura&#xA;cada módulo tem seu chão&#xA;pacote público é estrada&#xA;mas internal é portão.&#xA;Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: como ela protege aquilo que deve permanecer interno a um projeto. Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:&#xA;protected package-private friend o Go resolveu o problema de encapsulamento de maneira simples, explícita e aplicada pelo compilador.</description>
-    </item>
-    <item>
-      <title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
-      <link>https://delley.github.io/posts/enisa-2025/</link>
-      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/enisa-2025/</guid>
-      <description>O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do ENISA Threat Landscape 2025, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&#xA;Para organizações que atuam em infraestrutura digital, serviços de tecnologia da informação e comunicação (TIC) e desenvolvimento de software, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.</description>
-    </item>
-    <item>
-      <title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
-      <link>https://delley.github.io/posts/react-2-shell/</link>
-      <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/react-2-shell/</guid>
-      <description>Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — CVE-2025-55182, popularmente apelidada de React2Shell — que afeta React Server Components (RSC) e, por extensão, várias estruturas modernas como Next.js, React Router, Waku e plugins de bundlers. (React) (tenable)&#xA;O que é a Vulnerabilidade React2Shell? React2Shell é uma falha de desserialização insegura no protocolo de comunicação interno chamado Flight, usado pelos React Server Components para transmitir dados entre cliente e servidor.</description>
-    </item>
-    <item>
-      <title>Go Modules: Gerenciamento de Dependências</title>
-      <link>https://delley.github.io/posts/go-modules/</link>
-      <pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
-      <guid>https://delley.github.io/posts/go-modules/</guid>
-      <description>No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como dep, godep, govendor e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.&#xA;O que é o Go Modules? É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências&#xA;The Go Blog - Using Go Modules</description>
-    </item>
-    <item>
-      <title>Minha Retrospectiva 2019 como organizador da comunidade Golang SP</title>
-      <link>https://delley.github.io/posts/retrospectiva-2019/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/retrospectiva-2019/</guid>
-      <description>15 EVENTOS REALIZADOS, 1 WORKSHOP E UMA COORDENAÇÃO!!!&#xA;É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.&#xA;Janeiro/2019 Para quem acha que as coisas no Brasil só engrenam depois do carnaval, está completamente equivocado!!!&#xA;Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo Jeff Prestes, lá estava eu fazendo parte da organização dos eventos da Comunidade Golang SP e eu sequer tinha ideia do quanto isso mudaria minha vida.</description>
-    </item>
-    <item>
-      <title>Instalando e configurando o Docker CE no Fedora 31</title>
-      <link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
-      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
-      <description>Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.&#xA;No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.&#xA;Um software que utilizo bastante é o Docker, e é possível instalá-lo seguindo os passos fornecidos na documentação.</description>
-    </item>
-    <item>
-      <title>Introdução ao Go</title>
-      <link>https://delley.github.io/posts/introducao-ao-go/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/introducao-ao-go/</guid>
-      <description>O que é Go? Como o próprio site define:&#xA;Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.&#xA;golang.org&#xA;O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.&#xA;Go tem uma certa semelhança com C, principalmente no que diz respeito a alcançar o máximo com o mínimo de recursos.</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Posts on Textículos</title>
+		<link>https://delley.github.io/posts/</link>
+		<description>Recent content in Posts on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 05 Aug 2026 21:23:00 -0300</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Como Estruturar um Projeto Go para Escalar</title>
+				<link>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</link>
+				<pubDate>Wed, 05 Aug 2026 21:23:00 -0300</pubDate>
+				<guid>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/estrurar-projeto-escalar.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Encapsulamento usando internal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cordel técnico&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Quando o projeto é pequeno,&lt;br&gt;&#xA;Tudo parece funcionar.&lt;br&gt;&#xA;Mas basta o sistema crescer&lt;br&gt;&#xA;Para a conta começar.&lt;br&gt;&#xA;Sem fronteira e disciplina,&lt;br&gt;&#xA;Todo ajuste faz quebrar.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços.&lt;/p&gt;&#xA;&lt;p&gt;Uma estrutura sustentável deve favorecer:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;baixo acoplamento;&lt;/li&gt;&#xA;&lt;li&gt;alta coesão;&lt;/li&gt;&#xA;&lt;li&gt;dependências explícitas;&lt;/li&gt;&#xA;&lt;li&gt;testabilidade;&lt;/li&gt;&#xA;&lt;li&gt;observabilidade;&lt;/li&gt;&#xA;&lt;li&gt;evolução incremental.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Para a maioria dos sistemas, um bom ponto de partida é um &lt;strong&gt;monólito modular organizado por domínio&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Neste artigo, veremos como estruturar uma aplicação Go de modo que ela possa crescer sem transformar cada nova funcionalidade em uma travessia por um labirinto de pacotes, interfaces e dependências.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</title>
+				<link>https://delley.github.io/posts/encapsulamento-internal/</link>
+				<pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/encapsulamento-internal/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/encapisulamento-internal.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Encapsulamento usando internal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cordel técnico&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;No sertão da arquitetura&lt;br&gt;&#xA;cada módulo tem seu chão&lt;br&gt;&#xA;pacote público é estrada&lt;br&gt;&#xA;mas &lt;code&gt;internal&lt;/code&gt; é portão.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: &lt;strong&gt;como ela protege aquilo que deve permanecer interno a um projeto&lt;/strong&gt;.&#xA;Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;protected&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;package-private&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;friend&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;o Go resolveu o problema de encapsulamento de maneira &lt;strong&gt;simples, explícita e aplicada pelo compilador&lt;/strong&gt;. A solução é um mecanismo chamado: &lt;strong&gt;internal&lt;/strong&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Panorama das Ameaças Cibernéticas em 2025: Lições do Relatório da ENISA</title>
+				<link>https://delley.github.io/posts/enisa-2025/</link>
+				<pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/enisa-2025/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/enisa-2025.jpg&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;ENISA 2025&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;O cenário de ameaças cibernéticas segue uma trajetória clara de amadurecimento e sofisticação. Ataques estão mais automatizados, melhor organizados e cada vez mais integrados às cadeias digitais globais. Essa é uma das principais conclusões do &lt;strong&gt;ENISA Threat Landscape 2025&lt;/strong&gt;, relatório que analisa incidentes ocorridos entre julho de 2024 e junho de 2025.&lt;/p&gt;&#xA;&lt;p&gt;Para organizações que atuam em &lt;strong&gt;infraestrutura digital, serviços de tecnologia da informação e comunicação (TIC) e desenvolvimento de software&lt;/strong&gt;, o alerta é direto: o setor continua sendo um alvo estratégico, tanto para o cibercrime quanto para atividades de espionagem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>React2Shell: A falha crítica que abalou o ecossistema React e Next.js</title>
+				<link>https://delley.github.io/posts/react-2-shell/</link>
+				<pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/react-2-shell/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/react-2-shell.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;React2Shell&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Nos primeiros dias de dezembro de 2025, a equipe de desenvolvimento do React divulgou um alerta de segurança de máxima gravidade para uma vulnerabilidade crítica — &lt;strong&gt;CVE-2025-55182&lt;/strong&gt;, popularmente apelidada de &lt;strong&gt;React2Shell&lt;/strong&gt; — que afeta &lt;strong&gt;React Server Components (RSC)&lt;/strong&gt; e, por extensão, várias estruturas modernas como &lt;strong&gt;Next.js&lt;/strong&gt;, &lt;strong&gt;React Router&lt;/strong&gt;, &lt;strong&gt;Waku&lt;/strong&gt; e plugins de bundlers. (&lt;a href=&#34;https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React&lt;/a&gt;) (&lt;a href=&#34;https://www.tenable.com/blog/react2shell-cve-2025-55182-react-server-components-rce&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tenable&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;h2 id=&#34;o-que-é-a-vulnerabilidade-react2shell&#34;&gt;&#xA;  O que é a Vulnerabilidade React2Shell?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#o-que-%c3%a9-a-vulnerabilidade-react2shell&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;React2Shell é uma &lt;strong&gt;falha de desserialização insegura&lt;/strong&gt; no protocolo de comunicação interno chamado &lt;strong&gt;Flight&lt;/strong&gt;, usado pelos &lt;strong&gt;React Server Components&lt;/strong&gt; para transmitir dados entre cliente e servidor. Quando um servidor recebe um &lt;em&gt;payload&lt;/em&gt; manipulado, o código de desserialização trata a entrada como confiável, permitindo que um invasor remoto execute &lt;strong&gt;código arbitrário no servidor sem qualquer autenticação&lt;/strong&gt;.(&lt;a href=&#34;https://aws.amazon.com/pt/blogs/security/china-nexus-cyber-threat-groups-rapidly-exploit-react2shell-vulnerability-cve-2025-55182/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Amazon&lt;/a&gt;) (&lt;a href=&#34;https://blog.cloudflare.com/react2shell-rsc-vulnerabilities-exploitation-threat-brief/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudflare&lt;/a&gt;)&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Go Modules: Gerenciamento de Dependências</title>
+				<link>https://delley.github.io/posts/go-modules/</link>
+				<pubDate>Thu, 30 Jan 2020 12:26:43 -0300</pubDate>
+				<guid>https://delley.github.io/posts/go-modules/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/go-modules.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Go Modules&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;No últimos anos houve muita turbulência em torno do gerenciamento de dependências do Go. Vimos ferramentas como &lt;a href=&#34;https://golang.github.io/dep/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dep&lt;/a&gt;, &lt;a href=&#34;https://github.com/tools/godep&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;godep&lt;/a&gt;, &lt;a href=&#34;https://github.com/kardianos/govendor&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;govendor&lt;/a&gt; e um monte de outras entrar em cena para tentar resolver esse problema de uma vez por todas.&lt;/p&gt;&#xA;&lt;h2 id=&#34;o-que-é-o-go-modules&#34;&gt;&#xA;  O que é o Go Modules?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#o-que-%c3%a9-o-go-modules&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;É o novo sistema de gerenciamento de dependências do Go que torna explícita e fácil o gerenciamento das informações sobre versões de dependências&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Minha Retrospectiva 2019 como organizador da comunidade Golang SP</title>
+				<link>https://delley.github.io/posts/retrospectiva-2019/</link>
+				<pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/retrospectiva-2019/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;15 EVENTOS REALIZADOS, 1 WORKSHOP E UMA COORDENAÇÃO!!!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/retrospectiva.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Retrospectiva 2019&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;É isso mesmo Gophers&amp;hellip; foram incríveis 15 eventos realizado ao longo de 2019, 1 workshop e a coordenação da Trilha de Go no TDC SP 2019.&lt;/p&gt;&#xA;&lt;h2 id=&#34;janeiro2019&#34;&gt;&#xA;  Janeiro/2019&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#janeiro2019&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link para o cabeçalho&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link para o cabeçalho&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Para quem acha que as coisas no Brasil só engrenam depois do carnaval, está completamente equivocado!!!&lt;/p&gt;&#xA;&lt;p&gt;Janeiro já começou à milhão! Depois de uma conversa com o ilustríssimo &lt;a href=&#34;https://www.linkedin.com/in/jeffprestes/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jeff Prestes&lt;/a&gt;, lá estava eu fazendo parte da organização dos eventos da &lt;a href=&#34;http://golang.sampa.br/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Comunidade Golang SP&lt;/a&gt; e eu sequer tinha ideia do quanto isso mudaria minha vida.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Instalando e configurando o Docker CE no Fedora 31</title>
+				<link>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</link>
+				<pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/instalando-e-configurando-docker-fedora-31/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/docker-fedora-31.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Docker &amp;#43; Fedora 31&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Recentemente resolvi dar uma atualizada no Sistema Operacional do meu notebook. Já fazia cerca de um ano que estava usando a versão 29 do Fedora.&lt;/p&gt;&#xA;&lt;p&gt;No dia 29 de outubro de 2019, o Fedora 31 foi lançado e confesso que fiquei muito entusiasmado em experimentá-lo. Então, resolvi fazer uma instalação limpa e reinstalar todos os softwares que utilizo no dia-a-dia.&lt;/p&gt;&#xA;&lt;p&gt;Um software que utilizo bastante é o &lt;a href=&#34;https://www.docker.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker&lt;/a&gt;, e é possível instalá-lo seguindo os passos fornecidos na &lt;a href=&#34;https://docs.docker.com/install/linux/docker-ce/fedora/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentação&lt;/a&gt;. Porém, devido a alguns inconvenientes, os passos descritos aqui podem salvar o seu dia!!! &amp;#x1f44a;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Introdução ao Go</title>
+				<link>https://delley.github.io/posts/introducao-ao-go/</link>
+				<pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/introducao-ao-go/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/introducao-ao-go.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Intodução ao Go&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;O que é Go? Como o próprio site define:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;Go é uma linguagem de programação de código aberto que facilita a criação de software simples, confiável e eficiente.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://golang.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;golang.org&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;O projeto da linguagem Go foi iniciado em 2007 pelos engenheiros da Google Rob Pike, Ken Thompson e Robert Griesemer. A linguagem foi apresentada pela primeira vez em 2009 e teve a versão 1.0 lançada em 2012.&lt;/p&gt;&#xA;&lt;p&gt;Go tem uma certa semelhança com C, principalmente no que diz respeito a alcançar o máximo com o mínimo de recursos. Porém, não é uma versão atualizada do C. Na verdade, o Go adapta boas ideia de várias linguagens, sempre descartando funcionalidades que trazem complexidade e código não confiável.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

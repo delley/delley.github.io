@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Go on Textículos</title>
-    <link>https://delley.github.io/categories/go/</link>
-    <description>Recent content in Go on Textículos</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>pt-BR</language>
-    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://delley.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</title>
-      <link>https://delley.github.io/posts/encapsulamento-internal/</link>
-      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://delley.github.io/posts/encapsulamento-internal/</guid>
-      <description>Cordel técnico&#xA;No sertão da arquitetura&#xA;cada módulo tem seu chão&#xA;pacote público é estrada&#xA;mas internal é portão.&#xA;Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: como ela protege aquilo que deve permanecer interno a um projeto. Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:&#xA;protected package-private friend o Go resolveu o problema de encapsulamento de maneira simples, explícita e aplicada pelo compilador.</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Go on Textículos</title>
+		<link>https://delley.github.io/categories/go/</link>
+		<description>Recent content in Go on Textículos</description>
+		<generator>Hugo</generator>
+		<language>pt-BR</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 05 Aug 2026 21:23:00 -0300</lastBuildDate>
+		
+			<atom:link href="https://delley.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Como Estruturar um Projeto Go para Escalar</title>
+				<link>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</link>
+				<pubDate>Wed, 05 Aug 2026 21:23:00 -0300</pubDate>
+				<guid>https://delley.github.io/posts/como-estruturar-projeto-go-para-escalar/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/estrurar-projeto-escalar.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Encapsulamento usando internal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cordel técnico&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Quando o projeto é pequeno,&lt;br&gt;&#xA;Tudo parece funcionar.&lt;br&gt;&#xA;Mas basta o sistema crescer&lt;br&gt;&#xA;Para a conta começar.&lt;br&gt;&#xA;Sem fronteira e disciplina,&lt;br&gt;&#xA;Todo ajuste faz quebrar.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços.&lt;/p&gt;&#xA;&lt;p&gt;Uma estrutura sustentável deve favorecer:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;baixo acoplamento;&lt;/li&gt;&#xA;&lt;li&gt;alta coesão;&lt;/li&gt;&#xA;&lt;li&gt;dependências explícitas;&lt;/li&gt;&#xA;&lt;li&gt;testabilidade;&lt;/li&gt;&#xA;&lt;li&gt;observabilidade;&lt;/li&gt;&#xA;&lt;li&gt;evolução incremental.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Para a maioria dos sistemas, um bom ponto de partida é um &lt;strong&gt;monólito modular organizado por domínio&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Neste artigo, veremos como estruturar uma aplicação Go de modo que ela possa crescer sem transformar cada nova funcionalidade em uma travessia por um labirinto de pacotes, interfaces e dependências.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Encapsulamento em nível de módulo: &#34;internal&#34; em versos de cordel!</title>
+				<link>https://delley.github.io/posts/encapsulamento-internal/</link>
+				<pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+				<guid>https://delley.github.io/posts/encapsulamento-internal/</guid>
+				<description>&lt;figure class=&#34;centered&#34;&gt;&lt;img src=&#34;https://delley.github.io/images/encapisulamento-internal.png&#34;&#xA;&#x9;&#x9;&#x9;alt=&#34;Encapsulamento usando internal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cordel técnico&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;No sertão da arquitetura&lt;br&gt;&#xA;cada módulo tem seu chão&lt;br&gt;&#xA;pacote público é estrada&lt;br&gt;&#xA;mas &lt;code&gt;internal&lt;/code&gt; é portão.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Entre as muitas decisões elegantes do design da linguagem Go, uma delas revela muito sobre a filosofia da linguagem: &lt;strong&gt;como ela protege aquilo que deve permanecer interno a um projeto&lt;/strong&gt;.&#xA;Diferente de muitas linguagens orientadas a objetos que utilizam modificadores como:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;protected&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;package-private&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;friend&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;o Go resolveu o problema de encapsulamento de maneira &lt;strong&gt;simples, explícita e aplicada pelo compilador&lt;/strong&gt;. A solução é um mecanismo chamado: &lt;strong&gt;internal&lt;/strong&gt;&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
