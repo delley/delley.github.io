@@ -176,8 +176,7 @@ Para a conta começar.<br>
 Sem fronteira e disciplina,<br>
 Todo ajuste faz quebrar.</p>
 </blockquote>
-<p>Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços.</p>
-<p>Uma estrutura sustentável deve favorecer:</p>
+<p>Estruturar um projeto Go para escalar não significa criar dezenas de diretórios, aplicar todos os padrões arquiteturais disponíveis ou dividir prematuramente a aplicação em microserviços. Uma estrutura sustentável deve favorecer:</p>
 <ul>
 <li>baixo acoplamento;</li>
 <li>alta coesão;</li>
@@ -204,8 +203,7 @@ Em conjunto avançar.<br>
 Sem que toda nova mudança<br>
 Faça o sistema tombar.</p>
 </blockquote>
-<p>Quando falamos em escala, normalmente pensamos em tráfego, quantidade de usuários ou volume de processamento.</p>
-<p>Entretanto, uma aplicação também precisa escalar em outras dimensões:</p>
+<p>Quando falamos em escala, normalmente pensamos em tráfego, quantidade de usuários ou volume de processamento. Entretanto, uma aplicação também precisa escalar em outras dimensões:</p>
 <ul>
 <li>quantidade de funcionalidades;</li>
 <li>número de integrações;</li>
@@ -242,8 +240,7 @@ Pode aumentar a confusão.<br>
 Primeiro firme as fronteiras,<br>
 Depois pense em distribuição.</p>
 </blockquote>
-<p>Um monólito modular mantém a aplicação em uma única unidade de implantação, mas divide o código em módulos de negócio claramente definidos.</p>
-<p>Uma estrutura inicial pode ser:</p>
+<p>Um monólito modular mantém a aplicação em uma única unidade de implantação, mas divide o código em módulos de negócio claramente definidos. Uma estrutura inicial pode ser:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>my-project/
 </span></span><span style="display:flex;"><span>├── cmd/
 </span></span><span style="display:flex;"><span>│   ├── api/
@@ -276,8 +273,7 @@ Depois pense em distribuição.</p>
 </span></span><span style="display:flex;"><span>├── repositories/
 </span></span><span style="display:flex;"><span>├── controllers/
 </span></span><span style="display:flex;"><span>└── models/
-</span></span></code></pre></div><p>Embora pareça organizada, ela espalha uma única funcionalidade por vários diretórios.</p>
-<p>Para modificar o fluxo de pedidos, por exemplo, provavelmente será necessário navegar por:</p>
+</span></span></code></pre></div><p>Embora pareça organizada, ela espalha uma única funcionalidade por vários diretórios. Para modificar o fluxo de pedidos, por exemplo, provavelmente será necessário navegar por:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>handlers/order.go
 </span></span><span style="display:flex;"><span>services/order.go
 </span></span><span style="display:flex;"><span>repositories/order.go
@@ -289,8 +285,7 @@ Depois pense em distribuição.</p>
 </span></span><span style="display:flex;"><span>├── order/
 </span></span><span style="display:flex;"><span>├── payment/
 </span></span><span style="display:flex;"><span>└── inventory/
-</span></span></code></pre></div><p>Dessa forma, uma alteração no domínio de pedidos permanece concentrada dentro de <code>internal/order</code>.</p>
-<p>Essa abordagem reduz a carga cognitiva e melhora a capacidade de compreender o impacto de uma mudança.</p>
+</span></span></code></pre></div><p>Dessa forma, uma alteração no domínio de pedidos permanece concentrada dentro de <code>internal/order</code>. Essa abordagem reduz a carga cognitiva e melhora a capacidade de compreender o impacto de uma mudança.</p>
 <hr>
 <h2 id="o-diretório-cmd">
   O diretório <code>cmd</code>
@@ -400,9 +395,7 @@ Contra externa importação.<br>
 A própria linguagem ajuda<br>
 A manter a separação.</p>
 </blockquote>
-<p>O diretório <code>internal</code> possui comportamento especial em Go.</p>
-<p>Pacotes armazenados dentro dele não podem ser importados livremente por módulos externos que estejam fora da árvore permitida.</p>
-<p>Isso permite proteger detalhes internos da aplicação.</p>
+<p>O diretório <code>internal</code> possui comportamento especial em Go. Pacotes armazenados dentro dele não podem ser importados livremente por módulos externos que estejam fora da árvore permitida. Isso permite proteger detalhes internos da aplicação.</p>
 <p>Um módulo simples pode começar assim:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/order/
 </span></span><span style="display:flex;"><span>├── order.go
@@ -411,8 +404,7 @@ A manter a separação.</p>
 </span></span><span style="display:flex;"><span>├── errors.go
 </span></span><span style="display:flex;"><span>├── handler.go
 </span></span><span style="display:flex;"><span>└── postgres.go
-</span></span></code></pre></div><p>Essa estrutura plana é adequada enquanto o módulo ainda possui tamanho reduzido.</p>
-<p>Não é necessário começar imediatamente com:</p>
+</span></span></code></pre></div><p>Essa estrutura plana é adequada enquanto o módulo ainda possui tamanho reduzido. Não é necessário começar imediatamente com:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>domain/
 </span></span><span style="display:flex;"><span>application/
 </span></span><span style="display:flex;"><span>ports/
@@ -430,8 +422,7 @@ A manter a separação.</p>
 </span></span><span style="display:flex;"><span>│   └── repository.go
 </span></span><span style="display:flex;"><span>└── http/
 </span></span><span style="display:flex;"><span>    └── handler.go
-</span></span></code></pre></div><p>A estrutura deve acompanhar a complexidade existente.</p>
-<p>Não crie diretórios para uma complexidade que talvez nunca apareça.</p>
+</span></span></code></pre></div><p>A estrutura deve acompanhar a complexidade existente. Não crie diretórios para uma complexidade que talvez nunca apareça.</p>
 <hr>
 <h2 id="organize-o-sistema-por-domínio">
   Organize o sistema por domínio
@@ -449,8 +440,7 @@ Deve perto se encontrar.<br>
 Quem procura uma mudança<br>
 Não precisa peregrinar.</p>
 </blockquote>
-<p>Organizar por domínio significa agrupar o código de acordo com as capacidades de negócio.</p>
-<p>Uma aplicação de comércio eletrônico poderia ser organizada assim:</p>
+<p>Organizar por domínio significa agrupar o código de acordo com as capacidades de negócio. Uma aplicação de comércio eletrônico poderia ser organizada assim:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
 </span></span><span style="display:flex;"><span>├── customer/
 </span></span><span style="display:flex;"><span>├── catalog/
@@ -478,8 +468,7 @@ Não precisa peregrinar.</p>
 </span></span><span style="display:flex;"><span>├── repository/
 </span></span><span style="display:flex;"><span>├── service/
 </span></span><span style="display:flex;"><span>└── util/
-</span></span></code></pre></div><p>informa quais padrões técnicos foram utilizados.</p>
-<p>Uma estrutura como:</p>
+</span></span></code></pre></div><p>informa quais padrões técnicos foram utilizados. Já uma estrutura como:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/
 </span></span><span style="display:flex;"><span>├── billing/
 </span></span><span style="display:flex;"><span>├── identity/
@@ -639,14 +628,12 @@ Mais simples a substituição.</p>
 </span></span><span style="display:flex;"><span>		clock:      clock,
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>As implementações concretas podem utilizar PostgreSQL, Kafka, UUID ou o relógio do sistema.</p>
-<p>Em testes, essas dependências podem ser substituídas por implementações controladas.</p>
+</span></span></code></pre></div><p>As implementações concretas podem utilizar PostgreSQL, Kafka, UUID ou o relógio do sistema. Em testes, essas dependências podem ser substituídas por implementações controladas.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Repository
 </span></span><span style="display:flex;"><span>├── PostgreSQL
 </span></span><span style="display:flex;"><span>├── memória
 </span></span><span style="display:flex;"><span>└── stub de teste
-</span></span></code></pre></div><p>Isso não significa criar interfaces para todas as estruturas.</p>
-<p>Interfaces são especialmente úteis nas fronteiras com:</p>
+</span></span></code></pre></div><p>Isso não significa criar interfaces para todas as estruturas. Interfaces são especialmente úteis nas fronteiras com:</p>
 <ul>
 <li>banco de dados;</li>
 <li>mensageria;</li>
@@ -654,11 +641,9 @@ Mais simples a substituição.</p>
 <li>cache;</li>
 <li>armazenamento;</li>
 <li>geração de identificadores;</li>
-<li>relógio;</li>
-<li>sistemas de pagamento.</li>
+<li>relógio.</li>
 </ul>
-<p>Uma interface deve representar uma necessidade concreta do consumidor.</p>
-<p>Não deve existir apenas para satisfazer uma regra arquitetural.</p>
+<p>Uma interface deve representar uma necessidade concreta do consumidor. Não deve existir apenas para satisfazer uma regra arquitetural.</p>
 <hr>
 <h2 id="modele-casos-de-uso-explícitos">
   Modele casos de uso explícitos
@@ -845,8 +830,7 @@ Sem oculta resolução.<br>
 Dependência bem visível<br>
 Melhora a compreensão.</p>
 </blockquote>
-<p>A aplicação precisa de um lugar onde as dependências concretas são criadas e conectadas.</p>
-<p>Esse ponto é conhecido como <strong>composition root</strong>.</p>
+<p>A aplicação precisa de um lugar onde as dependências concretas são criadas e conectadas. Esse ponto é conhecido como <strong>composition root</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> New(config Config) (*Application, <span style="">error</span>) {
 </span></span><span style="display:flex;"><span>	db, err := database.Open(config.Database)
 </span></span><span style="display:flex;"><span>	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
@@ -939,15 +923,13 @@ Toda mudança vira tensão.</p>
 <li>mecanismos de retry;</li>
 <li>circuit breakers.</li>
 </ul>
-<p>Entretanto, <code>platform</code> não deve se tornar um diretório genérico para código sem classificação.</p>
-<p>Evite transformá-lo em algo semelhante a:</p>
+<p>Entretanto, <code>platform</code> não deve se tornar um diretório genérico para código sem classificação. Evite transformá-lo em algo semelhante a:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>internal/platform/
 </span></span><span style="display:flex;"><span>├── utils/
 </span></span><span style="display:flex;"><span>├── helpers/
 </span></span><span style="display:flex;"><span>├── commons/
 </span></span><span style="display:flex;"><span>└── miscellaneous/
-</span></span></code></pre></div><p>Pacotes com nomes genéricos normalmente escondem responsabilidades pouco definidas.</p>
-<p>A infraestrutura compartilhada deve fornecer capacidades técnicas, não regras de negócio.</p>
+</span></span></code></pre></div><p>Pacotes com nomes genéricos normalmente escondem responsabilidades pouco definidas. A infraestrutura compartilhada deve fornecer capacidades técnicas, não regras de negócio.</p>
 <hr>
 <h2 id="projete-a-aplicação-para-ser-stateless">
   Projete a aplicação para ser stateless
@@ -965,8 +947,7 @@ Nela não deve morar.<br>
 Para outra assumir o trabalho,<br>
 O dado precisa ficar.</p>
 </blockquote>
-<p>Aplicações preparadas para escalar horizontalmente devem evitar depender de estado local.</p>
-<p>Não armazene informações críticas em:</p>
+<p>Aplicações preparadas para escalar horizontalmente devem evitar depender de estado local. Não armazene informações críticas em:</p>
 <ul>
 <li>variáveis globais;</li>
 <li>mapas em memória;</li>
@@ -1014,8 +995,7 @@ O dado precisa ficar.</p>
 			</tr>
 	</tbody>
 </table>
-<p>A aplicação deve conseguir executar várias instâncias sem depender de qual delas processou a requisição anterior.</p>
-<p>Isso facilita:</p>
+<p>A aplicação deve conseguir executar várias instâncias sem depender de qual delas processou a requisição anterior. Isso facilita:</p>
 <ul>
 <li>balanceamento de carga;</li>
 <li>reinício de containers;</li>
@@ -1040,8 +1020,7 @@ Vê o efeito ressurgir.<br>
 Idempotência é o recurso<br>
 Que impede o erro de insistir.</p>
 </blockquote>
-<p>Em sistemas distribuídos, requisições e mensagens podem ser processadas mais de uma vez.</p>
-<p>Isso pode acontecer por:</p>
+<p>Em sistemas distribuídos, requisições e mensagens podem ser processadas mais de uma vez. Isso pode acontecer por:</p>
 <ul>
 <li>retry do cliente;</li>
 <li>timeout;</li>
@@ -1108,9 +1087,7 @@ Deve estar na persistência em ação.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">if</span> !repository.Exists(email) {
 </span></span><span style="display:flex;"><span>	repository.Insert(email)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Duas instâncias podem executar a verificação simultaneamente e concluir que o registro não existe.</p>
-<p>Em seguida, ambas tentam criá-lo.</p>
-<p>Esse problema deve ser tratado com mecanismos fornecidos pelo armazenamento:</p>
+</span></span></code></pre></div><p>Duas instâncias podem executar a verificação simultaneamente e concluir que o registro não existe. Em seguida, ambas tentam criá-lo. Esse problema deve ser tratado com mecanismos fornecidos pelo armazenamento:</p>
 <ul>
 <li>constraints únicas;</li>
 <li>transações;</li>
@@ -1164,15 +1141,14 @@ Faz o estado se quebrar.</p>
 </span></span><span style="display:flex;"><span>│                           │
 </span></span><span style="display:flex;"><span>│ 1. salva a entidade       │
 </span></span><span style="display:flex;"><span>│ 2. registra o evento      │
-</span></span><span style="display:flex;"><span>└──────────────┬────────────┘
-</span></span><span style="display:flex;"><span>               │
-</span></span><span style="display:flex;"><span>               ▼
-</span></span><span style="display:flex;"><span>       publicador da outbox
-</span></span><span style="display:flex;"><span>               │
-</span></span><span style="display:flex;"><span>               ▼
-</span></span><span style="display:flex;"><span>             broker
-</span></span></code></pre></div><p>A entidade e o evento são persistidos na mesma transação.</p>
-<p>Depois, um processo separado publica os eventos registrados na tabela de outbox.</p>
+</span></span><span style="display:flex;"><span>└─────────────┬─────────────┘
+</span></span><span style="display:flex;"><span>              │
+</span></span><span style="display:flex;"><span>              ▼
+</span></span><span style="display:flex;"><span>     publicador da outbox
+</span></span><span style="display:flex;"><span>              │
+</span></span><span style="display:flex;"><span>              ▼
+</span></span><span style="display:flex;"><span>            broker
+</span></span></code></pre></div><p>A entidade e o evento são persistidos na mesma transação. Em seguida, um processo separado publica os eventos registrados na tabela de outbox.</p>
 <p>Essa abordagem reduz o risco de inconsistência entre banco de dados e mensageria.</p>
 <hr>
 <h2 id="classifique-e-envolva-erros">
@@ -1237,8 +1213,7 @@ Pode expor a aplicação.</p>
 </span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;internal error&#34;</span>,
 </span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>O cliente não deve receber detalhes internos, stack traces ou informações de infraestrutura.</p>
-<p>Esses dados pertencem aos logs e às ferramentas de observabilidade.</p>
+</span></span></code></pre></div><p>O cliente não deve receber detalhes internos, stack traces ou informações de infraestrutura. Esses dados pertencem aos logs e às ferramentas de observabilidade.</p>
 <hr>
 <h2 id="centralize-a-configuração">
   Centralize a configuração
@@ -1256,8 +1231,7 @@ Após o tráfego chegar,<br>
 O sistema perde tempo<br>
 Tentando se recuperar.</p>
 </blockquote>
-<p>Evite acessar <code>os.Getenv</code> diretamente em vários pacotes.</p>
-<p>Prefira uma estrutura tipada:</p>
+<p>Evite acessar <code>os.Getenv</code> diretamente em vários pacotes. Prefira uma estrutura tipada:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">type</span> Config <span style="font-weight:bold">struct</span> {
 </span></span><span style="display:flex;"><span>	Environment   <span style="">string</span>
 </span></span><span style="display:flex;"><span>	HTTP          HTTPConfig
@@ -1288,8 +1262,7 @@ Tentando se recuperar.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="font-weight:bold">return</span> cfg, <span style="font-weight:bold">nil</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>A aplicação deve falhar cedo quando uma configuração obrigatória estiver ausente.</p>
-<p>Esse comportamento é preferível a descobrir a falha somente durante o processamento de uma requisição.</p>
+</span></span></code></pre></div><p>A aplicação deve falhar cedo quando uma configuração obrigatória estiver ausente. Esse comportamento é preferível a descobrir a falha somente durante o processamento de uma requisição.</p>
 <hr>
 <h2 id="implemente-graceful-shutdown">
   Implemente graceful shutdown
@@ -1307,8 +1280,7 @@ Nem mensagem sem tratar.<br>
 Encerrar com segurança<br>
 Também faz parte de escalar.</p>
 </blockquote>
-<p>Em ambientes com containers e orquestradores, a aplicação recebe sinais de encerramento.</p>
-<p>Ela deve responder a esses sinais de forma controlada.</p>
+<p>Em ambientes com containers e orquestradores, a aplicação recebe sinais de encerramento. Ela deve responder a esses sinais de forma controlada.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">func</span> (a *Application) Run(
 </span></span><span style="display:flex;"><span>	ctx context.Context,
 </span></span><span style="display:flex;"><span>) <span style="">error</span> {
@@ -1342,8 +1314,7 @@ Também faz parte de escalar.</p>
 <li>descarregar buffers;</li>
 <li>finalizar dentro de um prazo.</li>
 </ol>
-<p>Toda goroutine de longa duração deve possuir alguma estratégia de cancelamento.</p>
-<p>Uma goroutine sem controle de ciclo de vida pode causar:</p>
+<p>Toda goroutine de longa duração deve possuir alguma estratégia de cancelamento. Uma goroutine sem controle de ciclo de vida pode causar:</p>
 <ul>
 <li>vazamento de recursos;</li>
 <li>deadlocks;</li>
@@ -1368,8 +1339,7 @@ O diagnóstico é inseguro.<br>
 Log, métrica e rastreamento<br>
 Fazem o caminho mais seguro.</p>
 </blockquote>
-<p>Uma aplicação deve fornecer sinais suficientes para entender seu comportamento em produção.</p>
-<p>O conjunto mínimo inclui:</p>
+<p>Uma aplicação deve fornecer sinais suficientes para entender seu comportamento em produção. O conjunto mínimo inclui:</p>
 <ul>
 <li>logs estruturados;</li>
 <li>métricas;</li>
@@ -1403,8 +1373,7 @@ Fazem o caminho mais seguro.</p>
 <li>investigar incidentes;</li>
 <li>criar alertas.</li>
 </ul>
-<p>Também é necessário evitar métricas com alta cardinalidade.</p>
-<p>Não utilize identificadores únicos como labels:</p>
+<p>Também é necessário evitar métricas com alta cardinalidade. Não utilize identificadores únicos como labels:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>order_id
 </span></span><span style="display:flex;"><span>customer_id
 </span></span><span style="display:flex;"><span>email
@@ -1511,8 +1480,7 @@ Para provar a engenharia.</p>
     <span class="sr-only">Link para o cabeçalho</span>
   </a>
 </h3>
-<p>Validam se consumidores e provedores respeitam contratos esperados.</p>
-<p>São especialmente úteis em:</p>
+<p>Validam se consumidores e provedores respeitam contratos esperados. São especialmente úteis em:</p>
 <ul>
 <li>APIs HTTP;</li>
 <li>eventos;</li>
@@ -1527,8 +1495,7 @@ Para provar a engenharia.</p>
     <span class="sr-only">Link para o cabeçalho</span>
   </a>
 </h3>
-<p>Validam os fluxos críticos do sistema completo.</p>
-<p>Devem ser usados com moderação, pois costumam ser:</p>
+<p>Validam os fluxos críticos do sistema completo. Devem ser usados com moderação, pois costumam ser:</p>
 <ul>
 <li>lentos;</li>
 <li>frágeis;</li>
@@ -1644,8 +1611,7 @@ Não troféu para mostrar.</p>
 <li>nomes diretos;</li>
 <li>pouca indireção.</li>
 </ul>
-<p>Camadas devem ser adicionadas quando solucionam um problema real.</p>
-<p>Não devem existir apenas porque um diagrama arquitetural diz que deveriam existir.</p>
+<p>Camadas devem ser adicionadas quando solucionam um problema real. Não devem existir apenas porque um diagrama arquitetural diz que deveriam existir.</p>
 <hr>
 <h2 id="evolução-progressiva-da-estrutura">
   Evolução progressiva da estrutura
@@ -1835,17 +1801,9 @@ Clareza e composição.<br>
 Do domínio no seu centro<br>
 E explícita dependência em ação.</p>
 </blockquote>
-<p>Não existe uma única estrutura correta para todos os projetos Go.</p>
-<p>Uma aplicação pequena não precisa da mesma organização de um sistema com dezenas de módulos, múltiplos executáveis e integrações distribuídas.</p>
-<p>Por isso, a estrutura deve evoluir conforme surgem necessidades reais.</p>
-<p>Comece com um monólito modular.</p>
-<p>Organize o código pelas capacidades do negócio.</p>
-<p>Mantenha o domínio independente da infraestrutura.</p>
-<p>Use interfaces pequenas no lado consumidor.</p>
-<p>Centralize a composição das dependências.</p>
-<p>Projete a aplicação para ser stateless.</p>
-<p>Adicione idempotência, graceful shutdown e observabilidade desde cedo.</p>
-<p>Extraia microserviços somente quando houver razões técnicas e organizacionais concretas.</p>
+<p>Não existe uma única estrutura correta para todos os projetos Go. Uma aplicação pequena não precisa da mesma organização de um sistema com dezenas de módulos, múltiplos executáveis e integrações distribuídas. Por isso, a estrutura deve evoluir conforme surgem necessidades reais.</p>
+<p>Comece com um monólito modular, organize o código pelas capacidades do negócio, mantenha o domínio independente da infraestrutura, use interfaces pequenas no lado consumidor e centralize a composição das dependências.</p>
+<p>Projete a aplicação para ser stateless e adicione idempotência, graceful shutdown e observabilidade desde cedo. Extraia microserviços somente quando houver razões técnicas e organizacionais concretas.</p>
 <blockquote>
 <p><strong>Cordel técnico</strong></p>
 <p>Pois escalar não é somente<br>
@@ -1855,7 +1813,6 @@ Possam juntos avançar.<br>
 Sem transformar cada mudança<br>
 Num motivo para tudo quebrar.</p>
 </blockquote>
-<p>teste</p>
       </div>
 
 
